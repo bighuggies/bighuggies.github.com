@@ -3,13 +3,12 @@ import tornado.ioloop
 import tornado.web
 import datetime
 import pymongo
-import urlparse
 
 from pymongo import Connection
 
 config = {
-    'dev': False,
-    'mondodb_uri': urlparse.urlparse(os.environ.get('MONGOLAB_URI')),
+    'production': os.environ.get('ENVIRONMENT') == 'heroku',
+    'mongodb_uri': os.environ.get('MONGOLAB_URI'),
     'db_name': 'atsdatabase'
     }
 
@@ -24,10 +23,10 @@ settings = {
 
 def get_database():
     try:
-        if config['dev'] == True:
-            connection = Connection()
-        else:
+        if config['production'] == True:
             connection = Connection(config['mongodb_uri'])
+        else:
+            connection = Connection()
 
         database = connection[config['db_name']]
     except:
