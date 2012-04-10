@@ -10,10 +10,13 @@ from pymongo import Connection
 config = {
     'production': os.environ.get('ENVIRONMENT') == 'heroku',
     'mongodb_uri': os.environ.get('MONGOHQ_URL'),
-    'mongodb_user': urlparse(os.environ.get('MONGOHQ_URL')).username,
-    'mongodb_pwd': urlparse(os.environ.get('MONGOHQ_URL')).password,
     'db_name': 'atsdatabase'
     }
+
+if(config['production']):
+    config['mongodb_user'] = urlparse(os.environ.get('MONGOHQ_URL')).username
+    config['mongodb_pwd'] =  urlparse(os.environ.get('MONGOHQ_URL')).password
+
 
 print(config)
 
@@ -36,12 +39,13 @@ def get_database():
     return database;
 
 database = get_database()
-database.authenticate(config['mongodb_user'], config['mongodb_pwd'])
+
+if(config['production']):
+    print database.authenticate(config['mongodb_user'], config['mongodb_pwd'])
 
 class MainHandler(tornado.web.RequestHandler):        
     def get(self):
-        posts = database.posts.find()
-        self.render('templates/index.html', posts=posts)
+        self.render('templates/index.html', posts=database.posts.find())
 
         
 application = tornado.web.Application([
