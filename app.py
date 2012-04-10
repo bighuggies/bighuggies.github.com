@@ -4,11 +4,14 @@ import tornado.web
 import datetime
 import pymongo
 
+from urlparse import urlparse
 from pymongo import Connection
 
 config = {
     'production': os.environ.get('ENVIRONMENT') == 'heroku',
     'mongodb_uri': os.environ.get('MONGOHQ_URL'),
+    'mongodb_user': urlparse(os.environ.get('MONGOHQ_URL')).username,
+    'mongodb_pwd': urlparse(os.environ.get('MONGOHQ_URL')).password,
     'db_name': 'atsdatabase'
     }
 
@@ -31,6 +34,7 @@ def get_database():
     return database;
 
 database = get_database()
+database.authenticate(config['mongodb_user'], config['mongodb_pwd'])
 
 class MainHandler(tornado.web.RequestHandler):        
     def get(self):
