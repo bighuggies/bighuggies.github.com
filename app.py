@@ -8,18 +8,13 @@ from pymongo import Connection
 
 config = {
     'production': os.environ.get('ENVIRONMENT') == 'heroku',
-    'mongodb_uri': os.environ.get('MONGOLAB_URI'),
+    'mongodb_uri': os.environ.get('MONGOHQ_URL'),
     'db_name': 'atsdatabase'
     }
 
 settings = {
     'static_path': os.path.join(os.path.dirname(__file__), 'static')
     }
-
-#db_ref = {
-#            'database': get_database()
-#    }
-
 
 def get_database():
     try:
