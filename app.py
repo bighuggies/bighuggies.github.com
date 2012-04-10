@@ -9,14 +9,9 @@ from pymongo import Connection
 
 config = {
     'production': os.environ.get('ENVIRONMENT') == 'heroku',
-    'mongodb_uri': os.environ.get('MONGOHQ_URL'),
+    'mongodb_uri': os.environ.get('MONGOHQ_URL', ''),
     'db_name': 'app3750415'
     }
-
-if(config['production']):
-    config['mongodb_user'] = urlparse(os.environ.get('MONGOHQ_URL')).username
-    config['mongodb_pwd'] = urlparse(os.environ.get('MONGOHQ_URL')).password
-#    config['db_name'] = urlparse(os.environ.get('MONGOHQ_URL')).database
 
 settings = {
     'static_path': os.path.join(os.path.dirname(__file__), 'static')
@@ -37,17 +32,31 @@ def get_database():
     return database;
 
 database = get_database()
-
-if(config['production']):
-    database.authenticate(config['mongodb_user'], config['mongodb_pwd'])
+print database
 
 class MainHandler(tornado.web.RequestHandler):        
     def get(self):
         self.render('templates/index.html', posts=database.posts.find())
 
+class WritePostHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render('templates/write_post.html')
         
+    def post(self):
+        post = {
+            'title': self.get_argument('post_title'),
+            'date': 'today',
+            'author': 'Andrew Hughson',
+            'text': self.get_argument('post_contents')
+        }
+        
+        database.posts.save(post)
+        
+        self.redirect('/')
+                    
 application = tornado.web.Application([
     (r'/', MainHandler),
+    (r'/write_post', WritePostHandler),
 ], **settings)
 
 if __name__ == '__main__':
