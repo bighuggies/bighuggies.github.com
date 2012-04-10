@@ -15,6 +15,8 @@ config = {
     'db_name': 'atsdatabase'
     }
 
+print(config)
+
 settings = {
     'static_path': os.path.join(os.path.dirname(__file__), 'static')
     }
