@@ -1,2 +1,5 @@
 ENV
 *.pyc
+mockups
+.project
+.pydevproject
