@@ -10,13 +10,13 @@ from pymongo import Connection
 config = {
     'production': os.environ.get('ENVIRONMENT') == 'heroku',
     'mongodb_uri': os.environ.get('MONGOHQ_URL'),
-    'db_name': 'atsdatabase'
+    'db_name': 'app3750415'
     }
 
 if(config['production']):
     config['mongodb_user'] = urlparse(os.environ.get('MONGOHQ_URL')).username
     config['mongodb_pwd'] = urlparse(os.environ.get('MONGOHQ_URL')).password
-    config['db_name'] = urlparse(os.environ.get('MONGOHQ_URL')).database
+#    config['db_name'] = urlparse(os.environ.get('MONGOHQ_URL')).database
 
 settings = {
     'static_path': os.path.join(os.path.dirname(__file__), 'static')
