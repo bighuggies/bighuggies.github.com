@@ -16,7 +16,7 @@ config = {
 if(config['production']):
     config['mongodb_user'] = urlparse(os.environ.get('MONGOHQ_URL')).username
     config['mongodb_pwd'] =  urlparse(os.environ.get('MONGOHQ_URL')).password
-
+    print urlparse(os.environ.get('MONGOHQ_URL'))
 
 print(config)
 
