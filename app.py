@@ -7,7 +7,7 @@ import pymongo
 from pymongo import Connection
 
 config = {
-    'dev': True,
+    'dev': False,
     'mondodb_uri': os.environ.get('MONGOLAB_URI'),
     'db_name': 'posts'
 }
