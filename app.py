@@ -15,10 +15,8 @@ config = {
 
 if(config['production']):
     config['mongodb_user'] = urlparse(os.environ.get('MONGOHQ_URL')).username
-    config['mongodb_pwd'] =  urlparse(os.environ.get('MONGOHQ_URL')).password
-    print urlparse(os.environ.get('MONGOHQ_URL'))
-
-print(config)
+    config['mongodb_pwd'] = urlparse(os.environ.get('MONGOHQ_URL')).password
+    config['db_name'] = urlparse(os.environ.get('MONGOHQ_URL')).database
 
 settings = {
     'static_path': os.path.join(os.path.dirname(__file__), 'static')
@@ -41,7 +39,7 @@ def get_database():
 database = get_database()
 
 if(config['production']):
-    print database.authenticate(config['mongodb_user'], config['mongodb_pwd'])
+    database.authenticate(config['mongodb_user'], config['mongodb_pwd'])
 
 class MainHandler(tornado.web.RequestHandler):        
     def get(self):
