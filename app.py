@@ -22,17 +22,16 @@ settings = {
 
 
 def get_database():
-    if config['dev'] == True:
-        try:
-            if config['dev'] == True:
-                connection = Connection()
-            else:
-                connection = Connection(config['mongodb_uri'])
+    try:
+        if config['dev'] == True:
+            connection = Connection()
+        else:
+            connection = Connection(config['mongodb_uri'])
 
-            database = connection[config['db_name']]
-        except:
-            print('Unable to connect to the database.')
-            return None
+        database = connection[config['db_name']]
+    except:
+        print('Unable to connect to the database.')
+        return None
 
     return database;
 
