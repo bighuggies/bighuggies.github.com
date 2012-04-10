@@ -9,7 +9,7 @@ from pymongo import Connection
 config = {
     'dev': False,
     'mondodb_uri': os.environ.get('MONGOLAB_URI'),
-    'db_name': 'posts'
+    'db_name': 'atsdatabase'
 }
 
 def get_database():
@@ -34,18 +34,27 @@ class Post(object):
         self.author = author
         self.date = date
         self.text = ''
+        
+        {'title': 'Test 2', 'author': 'Andrew Hughson', 'date': '2012-04-10', 'text': 'lorem ipsum'}
 
 class MainHandler(tornado.web.RequestHandler):
-    def get(self):
+    def initialise(self, db_ref):
+        self.db = db_ref
         
-        self.render('templates/index.html')
+    def get(self):
+        posts = db.posts.find().limit(3)
+        self.render('templates/index.html', posts=posts)
 
 settings = {
     'static_path': os.path.join(os.path.dirname(__file__), 'static')
     }
+
+db_ref = {
+            'db_ref': get_database()
+}
         
 application = tornado.web.Application([
-    (r'/', MainHandler),
+    (r'/', MainHandler, db_ref),
 ], **settings)
 
 if __name__ == '__main__':
