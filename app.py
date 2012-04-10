@@ -10,7 +10,16 @@ config = {
     'dev': False,
     'mondodb_uri': os.environ.get('MONGOLAB_URI'),
     'db_name': 'atsdatabase'
-}
+    }
+
+settings = {
+    'static_path': os.path.join(os.path.dirname(__file__), 'static')
+    }
+
+#db_ref = {
+#            'database': get_database()
+#    }
+
 
 def get_database():
     if config['dev'] == True:
@@ -27,34 +36,16 @@ def get_database():
 
     return database;
 
+database = get_database()
 
-class Post(object):
-    def __init__(self, title='No Title', author='Andrew Hughson', date=datetime.date.today()):
-        self.title = title
-        self.author = author
-        self.date = date
-        self.text = ''
-        
-        {'title': 'Test 2', 'author': 'Andrew Hughson', 'date': '2012-04-10', 'text': 'lorem ipsum'}
-
-class MainHandler(tornado.web.RequestHandler):
-    def initialise(self, db_ref):
-        self.db = db_ref
-        
+class MainHandler(tornado.web.RequestHandler):        
     def get(self):
-        posts = db.posts.find().limit(3)
+        posts = database.posts.find()
         self.render('templates/index.html', posts=posts)
 
-settings = {
-    'static_path': os.path.join(os.path.dirname(__file__), 'static')
-    }
-
-db_ref = {
-            'db_ref': get_database()
-}
         
 application = tornado.web.Application([
-    (r'/', MainHandler, db_ref),
+    (r'/', MainHandler),
 ], **settings)
 
 if __name__ == '__main__':
