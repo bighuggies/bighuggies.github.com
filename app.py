@@ -3,12 +3,13 @@ import tornado.ioloop
 import tornado.web
 import datetime
 import pymongo
+import urlparse
 
 from pymongo import Connection
 
 config = {
     'dev': False,
-    'mondodb_uri': os.environ.get('MONGOLAB_URI'),
+    'mondodb_uri': urlparse.urlparse(os.environ.get('MONGOLAB_URI')),
     'db_name': 'atsdatabase'
     }
 
