@@ -1,7 +1,7 @@
 import os
 import tornado.ioloop
 import tornado.web
-import datetime
+import time
 import pymongo
 
 from urlparse import urlparse
@@ -31,21 +31,30 @@ def get_database():
 
     return database;
 
+def generate_paragraphs(text):    
+    paragraphs = text.split('\n')
+    for paragraph in paragraphs:
+        paragraphed_text += '<p>' + paragraph + '</p>'
+        
+    return paragraphed_text
+        
 database = get_database()
 print database
 
 class MainHandler(tornado.web.RequestHandler):        
     def get(self):
-        self.render('templates/index.html', posts=database.posts.find())
+        self.render('templates/index.html', posts=database.posts.find().sort('date', direction=pymongo.DESCENDING))
 
 class WritePostHandler(tornado.web.RequestHandler):
     def get(self):
         self.render('templates/write_post.html')
         
     def post(self):
+        print self.get_argument('post_contents')
+        
         post = {
             'title': self.get_argument('post_title'),
-            'date': 'today',
+            'date': time.asctime(time.localtime(time.time())),
             'author': 'Andrew Hughson',
             'text': self.get_argument('post_contents')
         }
@@ -53,10 +62,15 @@ class WritePostHandler(tornado.web.RequestHandler):
         database.posts.save(post)
         
         self.redirect('/')
+		
+class GoogleAuth(tornado.web.RequestHandler):
+	def get(self):
+		self.render('templates/google6d6bef6123ff616b.html')
                     
 application = tornado.web.Application([
     (r'/', MainHandler),
     (r'/write_post', WritePostHandler),
+	(r'/google6d6bef6123ff616b', GoogleAuth),
 ], **settings)
 
 if __name__ == '__main__':

@@ -34,15 +34,15 @@
 			</header>
 			<div class="row">
 				<div class="posts span8">
+					{%for post in posts%}
 					<div class="post">
-						{%for post in posts%}
 						<div class="post-heading">
 							<div class="post-title">
 								<h2>{{escape(post['title'])}}</h2>
 							</div>
 							<div class="post-date">
 								<p>
-									{{escape(post['date'])}}
+									{{post['date']}}
 								</p>
 							</div>
 							<div class="post-author">
@@ -52,10 +52,14 @@
 							</div>
 						</div>
 						<div class="post-body">
-							{{escape(post['text'])}}
+							{%for paragraph in post['text'].split('\n')%}
+							<p>
+								{{escape(paragraph)}}
+							</p>
+							{%end%}
 						</div>
-						{%end%}
 					</div>
+					{%end%}
 				</div>
 			</div>
 			<!-- /container -->
