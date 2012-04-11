@@ -70,7 +70,7 @@ class GoogleAuth(tornado.web.RequestHandler):
 application = tornado.web.Application([
     (r'/', MainHandler),
     (r'/write_post', WritePostHandler),
-	(r'/google6d6bef6123ff616b', GoogleAuth),
+	(r'/google6d6bef6123ff616b.html', GoogleAuth),
 ], **settings)
 
 if __name__ == '__main__':
