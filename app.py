@@ -30,16 +30,8 @@ def get_database():
         return None
 
     return database;
-
-def generate_paragraphs(text):    
-    paragraphs = text.split('\n')
-    for paragraph in paragraphs:
-        paragraphed_text += '<p>' + paragraph + '</p>'
-        
-    return paragraphed_text
         
 database = get_database()
-print database
 
 class MainHandler(tornado.web.RequestHandler):        
     def get(self):
@@ -62,15 +54,10 @@ class WritePostHandler(tornado.web.RequestHandler):
         database.posts.save(post)
         
         self.redirect('/')
-		
-class GoogleAuth(tornado.web.RequestHandler):
-	def get(self):
-		self.render('templates/google6d6bef6123ff616b.html')
-                    
+		                    
 application = tornado.web.Application([
     (r'/', MainHandler),
     (r'/write_post', WritePostHandler),
-	(r'/google6d6bef6123ff616b.html', GoogleAuth),
 ], **settings)
 
 if __name__ == '__main__':
