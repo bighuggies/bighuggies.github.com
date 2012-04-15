@@ -149,17 +149,17 @@ class Application(tornado.web.Application):
         
         
     def get_database(self):
-        try:
-            if self.settings['environment'] == 'heroku':
-                connection = Connection(config['mongodb_uri'])
-            else:
-                connection = Connection()
-    
-            database = connection[self.settings['db_name']]
-        except:
-            print('Unable to connect to the database.')
-            return None
-    
+#        try:
+        if self.settings['environment'] == 'heroku':
+            connection = Connection(config['mongodb_uri'])
+        else:
+            connection = Connection()
+
+        database = connection[self.settings['db_name']]
+#        except:
+#            print('Unable to connect to the database.')
+#            return None
+#    
         return database;
 
 
