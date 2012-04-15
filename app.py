@@ -150,7 +150,7 @@ class Application(tornado.web.Application):
         
     def get_database(self):
         if self.settings['environment'] == 'heroku':
-            connection = Connection(settings['mongodb_uri'])
+            connection = Connection(self.settings['mongodb_uri'])
         else:
             connection = Connection()
 
