@@ -1,13 +1,11 @@
 import os
 import json
-import time
 import re
-
-from unidecode import unidecode
 from datetime import datetime
 
-import pymongo
+from unidecode import unidecode
 
+import pymongo
 from pymongo import Connection
 
 import tornado.ioloop
@@ -15,6 +13,7 @@ import tornado.web
 import tornado.httpserver
 import tornado.auth
 
+import markdown
 
 _punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
 
@@ -31,7 +30,6 @@ class BaseHandler(tornado.web.RequestHandler):
     def db(self):
         return self.application.db
     
-    
     @property
     def user(self):
         user_json = self.get_secure_cookie("user")
@@ -39,7 +37,6 @@ class BaseHandler(tornado.web.RequestHandler):
         
         user = json.loads(user_json)
         return user['name']
-
         
     def get_current_user(self):
         user_json = self.get_secure_cookie("user")
@@ -54,13 +51,13 @@ class MainHandler(BaseHandler):
 
 class PostHandler(BaseHandler):
     def get(self, year, month, slug):
-        self.render('post.html', post=self.db.posts.find_one({'slug': slug}))
+        self.render('post.html', post=self.db.posts.find_one({'slug': slug, 'year': year, 'month': month}))
 
 
 class ComposeHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        self.render('compose.html')
+        self.render('compose.html', post=None)
     
     @tornado.web.authenticated
     def post(self):
@@ -75,11 +72,39 @@ class ComposeHandler(BaseHandler):
             'day': now.strftime("%d"),
             'time': now.strftime("%H"),
             'author': self.user,
-            'text': self.get_argument('post_contents')
+            'text': self.get_argument('post_contents'),
+            'html': markdown.markdown(self.get_argument('post_contents'))
         }
         
         self.db.posts.save(post)
         
+        self.redirect('/')
+
+
+class EditPostHandler(BaseHandler):
+    @tornado.web.authenticated
+    def get(self):
+        post = dict(
+            year=self.get_argument('year', ''),
+            month=self.get_argument('month', ''),
+            slug=self.get_argument('post', '')
+        )
+        self.render('compose.html', post=self.db.posts.find_one(post))
+        
+    def post(self):
+        criteria = {
+            'slug': slugify(self.get_argument('post_orig_title')),
+            'year': self.get_argument('post_year'),
+            'month': self.get_argument('post_month')
+        }
+        
+        post = {
+            'text': self.get_argument('post_contents'), 
+            'html': markdown.markdown(self.get_argument('post_contents')), 
+            'title': self.get_argument('post_title')
+        }
+        
+        self.db.posts.update(criteria, {'$set' : post}, safe=True)
         self.redirect('/')
         
         
@@ -113,10 +138,11 @@ class PostModule(tornado.web.UIModule):
     def render(self, post):
         return self.render_string("modules/post.html", post=post)
     
+    
 class JumbotronModule(tornado.web.UIModule):
     def render(self):
         return self.render_string("modules/jumbotron.html")
-
+    
 
 
 class Application(tornado.web.Application):
@@ -128,6 +154,7 @@ class Application(tornado.web.Application):
             (r'/compose', ComposeHandler),
             (r"/login", AuthLoginHandler),
             (r"/logout", AuthLogoutHandler),
+            (r"/edit", EditPostHandler)
         ]
         settings = dict(
             environment=os.getenv('ENVIRONMENT', 'development'),
@@ -136,17 +163,16 @@ class Application(tornado.web.Application):
             email='andrew@atshughson.me',
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static"),
-            ui_modules={"Post": PostModule, "Jumbotron": JumbotronModule,},
+            ui_modules={"Post": PostModule, "Jumbotron": JumbotronModule},
             xsrf_cookies=True,
             cookie_secret="dec98554f55ca8b216be35c40dd4c29b6fe3cc5d",
             login_url="/login",
-            autoescape=None,
+            autoescape=None
         )
         
         tornado.web.Application.__init__(self, handlers, **settings)
         
         self.db = self.get_database()
-        
         
     def get_database(self):
         if self.settings['environment'] == 'heroku':

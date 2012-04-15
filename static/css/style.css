@@ -12,11 +12,16 @@
 .post {
 	margin-bottom: 20px;
 }
-.post-date, .post-author {
-	padding: 0px;
-	margin: 0px;
-	font-size: 8pt;
-}
 .post-title * {
 	text-decoration: none;
+}
+.post-date-author {
+	font-size: 12px;
+	margin-bottom: 12px;
+}
+#login {
+	float: right;
+}
+textarea {
+	resize: none;
 }

@@ -1,22 +1,16 @@
 <div class="post">
-	<div class="post-heading">
-		<div class="post-title">
-			<h2><a href="post/{{ post['year'] + '/' + post['month'] + '/' + escape(post['slug']) }}">{{ escape(post['title']) }}</a></h2>
-		</div>
-		<div class="post-date">
-			{{post['year'] + '-' + post['month'] + '-' + post['day']}}
-		</div>
-		<div class="post-author">
-			{{escape(post['author'])}}
-		</div>
+	<div class="post-title">
+		<h2><a href="/post/{{ post["year"] + "/" + post["month"] + "/" + escape(post["slug"]) }}">{{ escape(post["title"]) }}</a></h2>
+	</div>
+	<div class="post-date-author">
+		{{escape(post["year"] + "-" + post["month"] + "-" + post["day"] + " by " + post["author"])}}
 	</div>
 	<div class="post-body">
-		{% for paragraph in post['text'].split('\n') %}
-		{% if paragraph.strip() != '' %}
-		<p>
-			{{escape(paragraph)}}
-		</p>
-		{% end %}
-		{% end %}
+		{{post['html']}}
 	</div>
+	{% if current_user %}
+	<div id="post-edit">
+		{{ _('<a href="%(url)s">Edit</a>') % {"url": "/edit?year=" + post["year"] + "&month=" + post["month"] + "&post=" + escape(post["slug"])} }}
+	</div>
+	{% end %}
 </div>

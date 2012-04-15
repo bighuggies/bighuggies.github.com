@@ -1,10 +1,17 @@
 {% extends "base.html" %}
-{% block body %}
+{% block body %} <!-- <header>
+<div id="login">
+{% if current_user %} <a href="/compose">{{ _("New post") }}</a> - <a href="/logout?next={{ url_escape(request.uri) }}">{{ _("Sign out") }}</a>
+{% else %}
+{{ _('<a href="%(url)s">Sign in</a> to compose/edit') % {"url": "/login?next=" + url_escape(request.uri)} }}
+{% end %}
+</div>
+<header> -->
 {{modules.Jumbotron()}}
 <div class="row">
 	<div class="posts span8">
 		{% for post in posts %}
-			{{ modules.Post(post) }}
+		{{ modules.Post(post) }}
 		{% end %}
 	</div>
 </div>

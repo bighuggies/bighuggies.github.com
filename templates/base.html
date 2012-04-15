@@ -26,14 +26,6 @@
 		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> -->
 	</head>
 	<body>
-		<div id="header">
-			<div style="float:right">
-				{% if current_user %} <a href="/compose">{{ _("New post") }}</a> - <a href="/logout?next={{ url_escape(request.uri) }}">{{ _("Sign out") }}</a>
-				{% else %}
-				{{ _('<a href="%(url)s">Sign in</a> to compose/edit') % {"url": "/login?next=" + url_escape(request.uri)} }}
-				{% end %}
-			</div>
-		</div>
 		<div class="container">
 			{% block body %} {% end %}
 		</div>

@@ -6,26 +6,28 @@
 			{{ xsrf_form_html() }}
 			<fieldset>
 				<legend>
-					Write a new post
+					Write/edit a post
 				</legend>
 				<div class="control-group">
 					<label class="control-label" for="post_title">Title</label>
 					<div class="controls">
-						<input type="text" class="input-xlarge span12" id="post_title" name="post_title">
+						<textarea class="input-xlarge span12" id="post_title" rows="1" name="post_title">{{post['title'] if post else ''}}</textarea>
 					</div>
 				</div>
+				{% if post %}
+				<input type="hidden" id="post_year" name="post_orig_title" value="{{post['title']}}">
+				<input type="hidden" id="post_year" name="post_year" value="{{post['year']}}">
+				<input type="hidden" id="post_year" name="post_month" value="{{post['month']}}">
+				{% end %}
 				<div class="control-group">
 					<label class="control-label" for="post_contents">Text</label>
 					<div class="controls">
-						<textarea class="input-xlarge span12" id="post_contents" rows="20" name="post_contents"></textarea>
+						<textarea class="input-xlarge span12" id="post_contents" rows="20" name="post_contents">{{post['text'] if post else ''}}</textarea>
 					</div>
 				</div>
 				<div class="form-actions">
 					<button type="submit" class="btn btn-primary" id="publish_post">
-						Publish post
-					</button>
-					<button type="submit" class="btn" formaction="/save_draft">
-						Save draft
+						Save post
 					</button>
 				</div>
 			</fieldset>
