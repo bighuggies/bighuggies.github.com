@@ -1,11 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
-{{modules.Jumbotron()}}
 <div class="row">
 	<div class="posts span8">
-		{% for post in posts %}
-			{{ modules.Post(post) }}
-		{% end %}
+		{{ modules.Post(post) }}
 	</div>
 </div>
-{% end %}
+{% end %} 

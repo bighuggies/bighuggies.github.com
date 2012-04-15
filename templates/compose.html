@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="row">
+	<div class="newpost">
+		<form id="new_post" class="form-horizontal" method="post">
+			{{ xsrf_form_html() }}
+			<fieldset>
+				<legend>
+					Write a new post
+				</legend>
+				<div class="control-group">
+					<label class="control-label" for="post_title">Title</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge span12" id="post_title" name="post_title">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="post_contents">Text</label>
+					<div class="controls">
+						<textarea class="input-xlarge span12" id="post_contents" rows="20" name="post_contents"></textarea>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary" id="publish_post">
+						Publish post
+					</button>
+					<button type="submit" class="btn" formaction="/save_draft">
+						Save draft
+					</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+{% end %} 

@@ -3,3 +3,4 @@ ENV
 mockups
 .project
 .pydevproject
+log.txt

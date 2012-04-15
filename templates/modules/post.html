@@ -1,0 +1,22 @@
+<div class="post">
+	<div class="post-heading">
+		<div class="post-title">
+			<h2><a href="post/{{ post['year'] + '/' + post['month'] + '/' + escape(post['slug']) }}">{{ escape(post['title']) }}</a></h2>
+		</div>
+		<div class="post-date">
+			{{post['year'] + '-' + post['month'] + '-' + post['day']}}
+		</div>
+		<div class="post-author">
+			{{escape(post['author'])}}
+		</div>
+	</div>
+	<div class="post-body">
+		{% for paragraph in post['text'].split('\n') %}
+		{% if paragraph.strip() != '' %}
+		<p>
+			{{escape(paragraph)}}
+		</p>
+		{% end %}
+		{% end %}
+	</div>
+</div>
