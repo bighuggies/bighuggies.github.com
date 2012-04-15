@@ -131,7 +131,7 @@ class Application(tornado.web.Application):
         ]
         settings = dict(
             environment=os.getenv('ENVIRONMENT', 'development'),
-            monodb_uri=os.getenv('MONGOHQ_URL', ''),
+            mongodb_uri=os.getenv('MONGOHQ_URL', ''),
             db_name='app3750415',
             email='andrew@atshughson.me',
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
