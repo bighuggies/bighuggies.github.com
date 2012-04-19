@@ -140,7 +140,6 @@ class JumbotronModule(tornado.web.UIModule):
         return self.render_string("modules/jumbotron.html")
     
 
-
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
