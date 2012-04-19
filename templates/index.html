@@ -17,9 +17,11 @@
 			<li class="previous">
 				<a href="?page={{ page + 1 if page else 1 }}">&larr; Older</a>
 			</li>
+			{% if page %}
 			<li class="next">
-				<a href="?page={{ page - 1 if page else '#' }}">Newer &rarr;</a>
+				<a href="?page={{ page - 1 }}">Newer &rarr;</a>
 			</li>
+			{% end %}
 		</ul>
 	</div>
 	<div class="sidebar span4">

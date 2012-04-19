@@ -47,7 +47,11 @@ class BaseHandler(tornado.web.RequestHandler):
     
 class MainHandler(BaseHandler):        
     def get(self):
-        page = int(self.get_argument('page', 0))
+        try:
+            page = int(self.get_argument('page', 0))
+        except:
+            self.write_error(status_code=404)
+            
         posts = self.db.posts.find().skip(page * 3).limit(3).sort('timestamp', direction=pymongo.DESCENDING)
         
         if posts.count(with_limit_and_skip=True) > 0:
@@ -58,7 +62,12 @@ class MainHandler(BaseHandler):
 
 class PostHandler(BaseHandler):
     def get(self, slug):
-        self.render('post.html', post=self.db.posts.find_one({'slug': slug}))
+        post=self.db.posts.find_one({'slug': slug})
+        
+        if post:
+            self.render('post.html', post=post)
+        else:
+            self.write_error(status_code=404)
 
 
 class ComposeHandler(BaseHandler):
