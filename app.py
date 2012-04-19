@@ -48,7 +48,12 @@ class BaseHandler(tornado.web.RequestHandler):
 class MainHandler(BaseHandler):        
     def get(self):
         page = int(self.get_argument('page', 0))
-        self.render('index.html', posts=self.db.posts.find().skip(page * 3).limit(3).sort('timestamp', direction=pymongo.DESCENDING), page=page)
+        posts = self.db.posts.find().skip(page * 3).limit(3).sort('timestamp', direction=pymongo.DESCENDING)
+        
+        if posts.count(with_limit_and_skip=True) > 0:
+            self.render('index.html', posts=posts, page=page)
+        else:
+            self.redirect('/')
 
 
 class PostHandler(BaseHandler):
