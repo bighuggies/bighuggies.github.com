@@ -25,3 +25,37 @@
 textarea {
 	resize: none;
 }
+#avatar {
+	margin-bottom: 20px;
+	clear: both;
+}
+.sidebar h3 {
+	margin-bottom: 10px;
+}
+.linksep {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+.recent-posts {
+	margin-top: 20px;
+}
+.sidebar img {
+	margin-top: 10px;;
+	margin-bottom: 30px;
+}
+.sidebar a {
+	text-decoration: none;
+}
+.sidebar ul {
+	margin: 0px;padding 0px;
+	list-style: none;
+	text-align: left;
+}
+.sidebar li {
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+}
+.sidebar {
+	margin-bottom: 20px;
+}

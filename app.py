@@ -7,6 +7,7 @@ from unidecode import unidecode
 
 import pymongo
 from pymongo import Connection
+import bson
 
 import tornado.ioloop
 import tornado.web
@@ -46,65 +47,46 @@ class BaseHandler(tornado.web.RequestHandler):
     
 class MainHandler(BaseHandler):        
     def get(self):
-        self.render('index.html', posts=self.db.posts.find().sort('timestamp', direction=pymongo.DESCENDING))
+        page = int(self.get_argument('page', 0))
+        self.render('index.html', posts=self.db.posts.find().skip(page * 3).limit(3).sort('timestamp', direction=pymongo.DESCENDING), page=page)
 
 
 class PostHandler(BaseHandler):
-    def get(self, year, month, slug):
-        self.render('post.html', post=self.db.posts.find_one({'slug': slug, 'year': year, 'month': month}))
+    def get(self, slug):
+        self.render('post.html', post=self.db.posts.find_one({'slug': slug}))
 
 
 class ComposeHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
-        self.render('compose.html', post=None)
+        slug = self.get_argument('post', None)
+        self.render('compose.html', post=self.db.posts.find_one({'slug': slug}))
     
     @tornado.web.authenticated
     def post(self):
-        now = datetime.now()
+        id = self.get_argument('post_id', None)
+        print id
         
-        post = {
-            'title': self.get_argument('post_title'),
-            'slug': slugify(self.get_argument('post_title')),
-            'timestamp': datetime.utcnow(),
-            'year': now.strftime("%Y"),
-            'month': now.strftime("%m"),
-            'day': now.strftime("%d"),
-            'time': now.strftime("%H"),
-            'author': self.user,
-            'text': self.get_argument('post_contents'),
-            'html': markdown.markdown(self.get_argument('post_contents'))
-        }
-        
-        self.db.posts.save(post)
-        
-        self.redirect('/')
+        if id:
+            post = {
+                'title': self.get_argument('post_title'),
+                'text': self.get_argument('post_contents'),
+                'html': markdown.markdown(self.get_argument('post_contents'))
+            }
+            
+            self.db.posts.update({'_id': bson.objectid.ObjectId(id)}, {'$set': post})
+        else:
+            post = {
+                'title': self.get_argument('post_title'),
+                'slug': slugify(self.get_argument('post_title')),
+                'timestamp': datetime.utcnow(),
+                'author': self.user,
+                'text': self.get_argument('post_contents'),
+                'html': markdown.markdown(self.get_argument('post_contents'))
+            }
 
-
-class EditPostHandler(BaseHandler):
-    @tornado.web.authenticated
-    def get(self):
-        post = dict(
-            year=self.get_argument('year', ''),
-            month=self.get_argument('month', ''),
-            slug=self.get_argument('post', '')
-        )
-        self.render('compose.html', post=self.db.posts.find_one(post))
-        
-    def post(self):
-        criteria = {
-            'slug': slugify(self.get_argument('post_orig_title')),
-            'year': self.get_argument('post_year'),
-            'month': self.get_argument('post_month')
-        }
-        
-        post = {
-            'text': self.get_argument('post_contents'), 
-            'html': markdown.markdown(self.get_argument('post_contents')), 
-            'title': self.get_argument('post_title')
-        }
-        
-        self.db.posts.update(criteria, {'$set' : post}, safe=True)
+            self.db.posts.save(post)
+                       
         self.redirect('/')
         
         
@@ -149,12 +131,10 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/', MainHandler),
-#            (r'/post/([^/]+)', PostHandler),
-            (r'/post/([0-9]{4})/([0-9]{2})/([a-zA-Z0-9-]+)', PostHandler),
+            (r'/post/([a-zA-Z0-9-]+/?)', PostHandler),
             (r'/compose', ComposeHandler),
-            (r"/login", AuthLoginHandler),
-            (r"/logout", AuthLogoutHandler),
-            (r"/edit", EditPostHandler)
+            (r"/login/?", AuthLoginHandler),
+            (r"/logout/?", AuthLogoutHandler),
         ]
         settings = dict(
             environment=os.getenv('ENVIRONMENT', 'development'),

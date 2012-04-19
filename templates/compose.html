@@ -15,9 +15,7 @@
 					</div>
 				</div>
 				{% if post %}
-				<input type="hidden" id="post_year" name="post_orig_title" value="{{post['title']}}">
-				<input type="hidden" id="post_year" name="post_year" value="{{post['year']}}">
-				<input type="hidden" id="post_year" name="post_month" value="{{post['month']}}">
+				<input type="hidden" id="post_id" name="post_id" value="{{post['_id']}}">
 				{% end %}
 				<div class="control-group">
 					<label class="control-label" for="post_contents">Text</label>
