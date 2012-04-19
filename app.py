@@ -50,7 +50,7 @@ class MainHandler(BaseHandler):
         try:
             page = int(self.get_argument('page', 0))
         except:
-            self.write_error(status_code=404)
+            self.send_error(status_code=404)
             
         posts = self.db.posts.find().skip(page * 3).limit(3).sort('timestamp', direction=pymongo.DESCENDING)
         
@@ -67,7 +67,7 @@ class PostHandler(BaseHandler):
         if post:
             self.render('post.html', post=post)
         else:
-            self.write_error(status_code=404)
+            self.send_error(status_code=404)
 
 
 class ComposeHandler(BaseHandler):
