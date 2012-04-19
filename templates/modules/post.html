@@ -1,9 +1,10 @@
+{% import datetime %}
 <div class="post">
 	<div class="post-title">
 		<h2><a href="/post/{{ escape(post["slug"]) }}">{{ escape(post["title"]) }}</a></h2>
 	</div>
 	<div class="post-date-author">
-		{{escape(str(post["timestamp"]) + " by " + post["author"])}}
+		{{escape(post["timestamp"].strftime('%Y-%m-%d %X%p') + " by " + post["author"])}}
 	</div>
 	<div class="post-body">
 		{{post['html']}}
