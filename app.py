@@ -57,10 +57,8 @@ class MainHandler(BaseHandler):
         posts = self.db.posts.find().sort('timestamp', direction=pymongo.DESCENDING)
         bookmarks = self.db.bookmarks.find(sort=[('_id', -1)])
         
-        if posts.count(with_limit_and_skip=True) > 0:
-            self.render('index.html', posts=posts, bookmarks=bookmarks)
-        else:
-            self.redirect('/')
+        
+        self.render('index.html', posts=posts, bookmarks=bookmarks)
 
 
 class PostHandler(BaseHandler):

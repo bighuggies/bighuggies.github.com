@@ -6,10 +6,16 @@
 	<div class="posts span8">
 		<h2>Things I wrote</h2>
 		<ul id="post-list" class="front-list">
+			{% if posts.count() > 0 %}
 			{% for post in posts %}
 			<li>
 				<a href="post/{{post['slug']}}">{{ escape(post['title']) }}</a>
 			</li>
+			{% end %}
+			{% else %}
+			<p>
+				Nothing yet
+			</p>
 			{% end %}
 		</ul>
 		<h2>Things I thought were interesting</h2>
