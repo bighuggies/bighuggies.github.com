@@ -114,9 +114,12 @@ class ComposeHandler(BaseHandler):
 
 
 class BookMarkHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self):
-        id = self.get_argument('id')
-        self.db.bookmarks.remove({'_id': bson.objectid.ObjectId(id)})
+        id = self.get_argument('id', None)
+        
+        if id:
+            self.db.bookmarks.remove({'_id': bson.objectid.ObjectId(id)})
         
         self.redirect('/')
     
