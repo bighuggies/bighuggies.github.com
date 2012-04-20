@@ -187,7 +187,7 @@ class Application(tornado.web.Application):
             cookie_secret="dec98554f55ca8b216be35c40dd4c29b6fe3cc5d",
             login_url="/login",
             autoescape=None,
-            debug=True
+            debug=False
         )
         
         tornado.web.Application.__init__(self, handlers, **settings)
