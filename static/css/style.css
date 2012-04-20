@@ -48,7 +48,8 @@ textarea {
 	text-decoration: none;
 }
 .sidebar ul {
-	margin: 0px;padding 0px;
+	margin: 0px;
+	padding: 0px;
 	list-style: none;
 	text-align: left;
 }
@@ -59,4 +60,20 @@ textarea {
 }
 .sidebar {
 	margin-bottom: 20px;
+}
+.front-list {
+	margin-left: 0px;
+	padding-left: 0px;
+}
+.front-list ul {
+}
+.front-list li {
+	text-align: left;
+	list-style: none;
+	margin-bottom: 8px;
+}
+.front-list a {
+	font-size: 12px;
+	text-decoration: none;
+	border-bottom: 1px solid #eeeeee;
 }

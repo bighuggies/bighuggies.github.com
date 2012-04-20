@@ -1,45 +1,45 @@
 {% extends "base.html" %}
-{% block body %} <!-- <header>
-<div id="login">
-{% if current_user %} <a href="/compose">{{ _("New post") }}</a> - <a href="/logout?next={{ url_escape(request.uri) }}">{{ _("Sign out") }}</a>
-{% else %}
-{{ _('<a href="%(url)s">Sign in</a> to compose/edit') % {"url": "/login?next=" + url_escape(request.uri)} }}
-{% end %}
-</div>
-<header> -->
+{% block body %}
+
 {{modules.Jumbotron()}}
 <div class="row">
 	<div class="posts span8">
-		{% for post in posts %}
-		{{ modules.Post(post) }}
-		{% end %}
-		<ul class="pager">
-			<li class="previous">
-				<a href="?page={{ page + 1 if page else 1 }}">&larr; Older</a>
+		<h2>Things I wrote</h2>
+		<ul id="post-list" class="front-list">
+			{% for post in posts %}
+			<li>
+				<a href="post/{{post['slug']}}">{{ escape(post['title']) }}</a>
 			</li>
-			{% if page %}
-			<li class="next">
-				<a href="?page={{ page - 1 }}">Newer &rarr;</a>
+			{% end %}
+		</ul>
+		<h2>Things I thought were interesting</h2>
+		<ul id="bookmark-list" class="front-list">
+			{% for bookmark in bookmarks %}
+			<li>
+				<a href="{{bookmark['url']}}">{{ escape(bookmark['title']) }}</a>{% if current_user %}<a href="bookmark?id={{ bookmark['_id'] }}" class="pull-right">[X]</a>{% end %}
 			</li>
 			{% end %}
 		</ul>
 	</div>
 	<div class="sidebar span4">
-		<h3>About</h3>
+		<h2>About</h2>
 		<p class="description">
 			I'm a software engineering undergraduate currently studying at the University of Auckland in New Zealand. These are some of my thoughts about software.
 		</p>
 		<img src="{{ static_url('img/me.jpg') }}" alt="Andrew Hughson">
 		<ul>
+			<a href="https://github.com/SpikeMeister">
 			<li>
-				<a href="https://github.com/SpikeMeister">GitHub</a>
-			</li>
+				GitHub
+			</li> </a>
+			<a href="https://twitter.com/#!/andrewhuggies">
 			<li>
-				<a href="https://twitter.com/#!/andrewhuggies">Twitter</a>
-			</li>
+				Twitter
+			</li></a>
+			<a href="http://www.linkedin.com/pub/andrew-hughson/3a/504/200">
 			<li>
-				<a href="http://www.linkedin.com/pub/andrew-hughson/3a/504/200">LinkedIn</a>
-			</li>
+				LinkedIn
+			</li></a>
 		</ul>
 	</div>
 </div>

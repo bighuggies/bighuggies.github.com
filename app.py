@@ -52,22 +52,32 @@ class MainHandler(BaseHandler):
         except:
             self.send_error(status_code=404)
             
-        posts = self.db.posts.find().skip(page * 3).limit(3).sort('timestamp', direction=pymongo.DESCENDING)
+#        posts = self.db.posts.find().skip(page * 3).limit(3).sort('timestamp', direction=pymongo.DESCENDING)
+
+        posts = self.db.posts.find().sort('timestamp', direction=pymongo.DESCENDING)
+        bookmarks = self.db.bookmarks.find(sort=[('_id', -1)])
         
         if posts.count(with_limit_and_skip=True) > 0:
-            self.render('index.html', posts=posts, page=page)
+            self.render('index.html', posts=posts, bookmarks=bookmarks)
         else:
             self.redirect('/')
 
 
 class PostHandler(BaseHandler):
     def get(self, slug):
-        post=self.db.posts.find_one({'slug': slug})
+        post = self.db.posts.find_one({'slug': slug})
         
         if post:
             self.render('post.html', post=post)
         else:
             self.send_error(status_code=404)
+            
+class DeleteHandler(BaseHandler):
+    @tornado.web.authenticated
+    def get(self, slug):
+        self.db.posts.remove({'slug': slug})
+        
+        self.redirect('/')
 
 
 class ComposeHandler(BaseHandler):
@@ -77,9 +87,8 @@ class ComposeHandler(BaseHandler):
         self.render('compose.html', post=self.db.posts.find_one({'slug': slug}))
     
     @tornado.web.authenticated
-    def post(self):
+    def post(self):        
         id = self.get_argument('post_id', None)
-        print id
         
         if id:
             post = {
@@ -102,8 +111,23 @@ class ComposeHandler(BaseHandler):
             self.db.posts.save(post)
                        
         self.redirect('/')
+
+
+class BookMarkHandler(BaseHandler):
+    def get(self):
+        id = self.get_argument('id')
+        self.db.bookmarks.remove({'_id': bson.objectid.ObjectId(id)})
         
-        
+        self.redirect('/')
+    
+    def post(self):
+        bookmark = json.loads(self.request.body)
+        self.db.bookmarks.save(bookmark)
+
+    def check_xsrf_cookie(self):
+        pass
+
+
 class AuthLoginHandler(BaseHandler, tornado.auth.GoogleMixin):
     @tornado.web.asynchronous
     def get(self):
@@ -129,16 +153,15 @@ class AuthLogoutHandler(BaseHandler):
         self.clear_cookie("user")
         self.redirect("/")
 
-
 class PostModule(tornado.web.UIModule):
     def render(self, post):
         return self.render_string("modules/post.html", post=post)
-    
-    
+
+
 class JumbotronModule(tornado.web.UIModule):
     def render(self):
         return self.render_string("modules/jumbotron.html")
-    
+
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -146,6 +169,8 @@ class Application(tornado.web.Application):
             (r'/', MainHandler),
             (r'/post/([a-zA-Z0-9-]+/?)', PostHandler),
             (r'/compose', ComposeHandler),
+            (r'/delete/([a-zA-Z0-9-]+/?)', DeleteHandler),
+            (r'/bookmark', BookMarkHandler),
             (r"/login/?", AuthLoginHandler),
             (r"/logout/?", AuthLogoutHandler),
         ]
@@ -160,7 +185,8 @@ class Application(tornado.web.Application):
             xsrf_cookies=True,
             cookie_secret="dec98554f55ca8b216be35c40dd4c29b6fe3cc5d",
             login_url="/login",
-            autoescape=None
+            autoescape=None,
+            debug=True
         )
         
         tornado.web.Application.__init__(self, handlers, **settings)
