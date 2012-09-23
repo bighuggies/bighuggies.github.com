@@ -18,6 +18,7 @@ import markdown
 
 _punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
 
+
 def slugify(text, delim=u'-'):
     """Generates an ASCII-only slug."""
     result = []
@@ -30,51 +31,46 @@ class BaseHandler(tornado.web.RequestHandler):
     @property
     def db(self):
         return self.application.db
-    
+
     @property
     def user(self):
         user_json = self.get_secure_cookie("user")
-        if not user_json: return None
-        
+        if not user_json:
+            return None
+
         user = json.loads(user_json)
         return user['name']
-        
+
     def get_current_user(self):
         user_json = self.get_secure_cookie("user")
-        if not user_json: return None
+        if not user_json:
+            return None
         return tornado.escape.json_decode(user_json)
 
-    
-class MainHandler(BaseHandler):        
-    def get(self):
-        try:
-            page = int(self.get_argument('page', 0))
-        except:
-            self.send_error(status_code=404)
-            
-#        posts = self.db.posts.find().skip(page * 3).limit(3).sort('timestamp', direction=pymongo.DESCENDING)
 
+class MainHandler(BaseHandler):
+    def get(self):
         posts = self.db.posts.find().sort('timestamp', direction=pymongo.DESCENDING)
         bookmarks = self.db.bookmarks.find(sort=[('_id', -1)])
-        
-        
+
         self.render('index.html', posts=posts, bookmarks=bookmarks)
 
 
 class PostHandler(BaseHandler):
     def get(self, slug):
         post = self.db.posts.find_one({'slug': slug})
-        
+
         if post:
             self.render('post.html', post=post)
         else:
             self.send_error(status_code=404)
-            
+
+
 class DeleteHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self, slug):
         self.db.posts.remove({'slug': slug})
-        
+
         self.redirect('/')
 
 
@@ -83,18 +79,18 @@ class ComposeHandler(BaseHandler):
     def get(self):
         slug = self.get_argument('post', None)
         self.render('compose.html', post=self.db.posts.find_one({'slug': slug}))
-    
+
     @tornado.web.authenticated
-    def post(self):        
+    def post(self):
         id = self.get_argument('post_id', None)
-        
+
         if id:
             post = {
                 'title': self.get_argument('post_title'),
                 'text': self.get_argument('post_contents'),
                 'html': markdown.markdown(self.get_argument('post_contents'))
             }
-            
+
             self.db.posts.update({'_id': bson.objectid.ObjectId(id)}, {'$set': post})
         else:
             post = {
@@ -107,7 +103,7 @@ class ComposeHandler(BaseHandler):
             }
 
             self.db.posts.save(post)
-                       
+
         self.redirect('/')
 
 
@@ -115,12 +111,12 @@ class BookMarkHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         id = self.get_argument('id', None)
-        
+
         if id:
             self.db.bookmarks.remove({'_id': bson.objectid.ObjectId(id)})
-        
+
         self.redirect('/')
-    
+
     def post(self):
         bookmark = json.loads(self.request.body)
         self.db.bookmarks.save(bookmark)
@@ -141,18 +137,19 @@ class AuthLoginHandler(BaseHandler, tornado.auth.GoogleMixin):
         if not user:
             self.authenticate_redirect()
             raise tornado.web.HTTPError(500, "Google auth failed")
-        
+
         if user['email'] == self.application.settings['email']:
             self.set_secure_cookie("user", tornado.escape.json_encode(user))
             self.redirect("/")
         else:
             raise tornado.web.HTTPError(500, "NO LOGIN 4 U")
-        
-    
+
+
 class AuthLogoutHandler(BaseHandler):
     def get(self):
         self.clear_cookie("user")
         self.redirect("/")
+
 
 class PostModule(tornado.web.UIModule):
     def render(self, post):
@@ -178,7 +175,6 @@ class Application(tornado.web.Application):
         settings = dict(
             environment=os.getenv('ENVIRONMENT', 'development'),
             mongodb_uri=os.getenv('MONGOHQ_URL', ''),
-            db_name='app3750415',
             email='andrew@atshughson.me',
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static"),
@@ -197,11 +193,12 @@ class Application(tornado.web.Application):
     def get_database(self):
         if self.settings['environment'] == 'heroku':
             connection = Connection(self.settings['mongodb_uri'])
-            self.settings['db_name'] = self.settings['mongodb_uri'].split('/')[-1]
+            dbname = self.settings['mongodb_uri'].split('/')[-1]
         else:
             connection = Connection()
+            dbname = 'test'
 
-        database = connection[self.settings['db_name']]
+        database = connection[dbname]
 
         return database
 
