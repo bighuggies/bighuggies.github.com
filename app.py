@@ -189,20 +189,21 @@ class Application(tornado.web.Application):
             autoescape=None,
             debug=False
         )
-        
+
         tornado.web.Application.__init__(self, handlers, **settings)
-        
+
         self.db = self.get_database()
-        
+
     def get_database(self):
         if self.settings['environment'] == 'heroku':
             connection = Connection(self.settings['mongodb_uri'])
+            self.settings['db_name'] = self.settings['mongodb_uri'].split('/')[-1]
         else:
             connection = Connection()
 
         database = connection[self.settings['db_name']]
 
-        return database;
+        return database
 
 
 def main():
