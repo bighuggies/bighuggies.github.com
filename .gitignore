@@ -1,6 +1,0 @@
-ENV
-*.pyc
-mockups
-.project
-.pydevproject
-log.txt
