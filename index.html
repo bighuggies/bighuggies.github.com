@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
-<h1>Huggies' Blag</h1>
-<h2>Perfect for blagging</h2>
-<p>Lorem ipsum</p>
+<h1>Hello boys<h1>
+
+{% for post in site.posts %}
+    <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+{% endfor %}
