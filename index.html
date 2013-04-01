@@ -1,8 +1,9 @@
 ---
 layout: default
 ---
-<h1>Hello boys<h1>
 
 {% for post in site.posts %}
-    <a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
+    <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a>
+    {{ post.content | truncate: 600 }}
+    <a href="{{ post.url }}">continue reading...</a>
 {% endfor %}

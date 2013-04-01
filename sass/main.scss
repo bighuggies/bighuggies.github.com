@@ -1,0 +1,44 @@
+@import "compass/css3/box-shadow";
+
+$footer-height: 40px;
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: Georgia, serif;
+    font-weight: lighter;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+#wrapper {
+    min-height: 100%;
+    width: 960px;
+    position: relative;
+    margin: 0 auto;
+}
+
+header {
+    h1 {
+        margin-top: 0;
+        text-transform: lowercase;
+        font-style: italic;
+    }
+}
+
+#content {
+    padding-bottom: $footer-height;   /* Height of the footer element */
+}
+
+footer {
+    width: 100%;
+    height: $footer-height;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+

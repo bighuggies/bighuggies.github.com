@@ -1,11 +1,11 @@
 ---
-title: Test Post YAML Title
+title: Amazing Blog Post
 layout: default
 ---
 
 Lorem own yo' mammasay mammasa mamma oo sa doggy amizzle, consectetuer adipiscing bizzle. Nullam sapien velizzle, fizzle volutpizzle, shut the shizzle up boofron, gravida vizzle, sheezy. Pellentesque eget tortizzle. Away erizzle. Mammasay mammasa mamma oo sa at dolor dapibus turpis tempizzle shiz. Mauris funky fresh nibh et turpizzle. Sheezy izzle tortor. That's the shizzle eleifend rhoncizzle away. In habitasse platea dictumst. Donec dapibizzle. Curabitizzle tellus we gonna chung, pretizzle you son of a bizzle, mattizzle ac, boom shackalack vitae, nunc. Fizzle shizzle my nizzle crocodizzle. Integizzle semper uhuh ... yih! gangster things.
 
-###Test Post Heading
+###Test Post
 Phasellizzle check it out volutpizzle tellus. Ut yo mamma adipiscing hizzle. Donizzle pimpin' est. Get down get down sapizzle bow wow wow, ultrices , accumsizzle its fo rizzle, fermentum shit, yo mamma. Dizzle nizzle libero. Gangsta stuff ornare ante. Ma nizzle yippiyo. Vestibulizzle ut pede shit nibh commodo commodo. Lorem get down get down sizzle that's the shizzle phat, consectetuer check out this elizzle. Sed izzle mi. Quisque mi sem, sodalizzle et, doggy i'm in the shizzle, eleifend a, elit.
 
 In sagittis nizzle non bling bling. Crunk rhoncizzle, ghetto nizzle malesuada i'm in the shizzle, mah nizzle for sure bling bling sizzle, non dawg fo shizzle my nizzle felizzle we gonna chung est. Suspendisse volutpat da bomb augue. Sizzle egestizzle ghetto ut libero. Prizzle sure blandizzle sapizzle. Tellivizzle aliquet, cool fo shizzle my nizzle amizzle accumsizzle owned, leo sizzle ultrices sizzle, ac get down get down erat nisi dang fo shizzle purus. Maecenizzle hendrerizzle tortizzle the bizzle enizzle. Phasellizzle lobortis. Nizzle lectus crunk, convallizzle nec, aliquet gangster amizzle, gizzle egestas, augue. Vivamizzle convallis. Vestibulizzle own yo' ipsizzle get down get down izzle faucibus you son of a bizzle yo mamma izzle things i'm in the shizzle mah nizzle Curae; Uhuh ... yih! bling bling elit uhuh ... yih! break yo neck, yall gangster. Fusce est for sure, vulputate vizzle, sheezy vizzle, commodo dawg, nisi. Etizzle ass, bizzle eget mofo luctus, lorizzle owned bizzle fizzle, that's the shizzle viverra mi sizzle vitae erizzle.
