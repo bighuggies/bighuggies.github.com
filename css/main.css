@@ -16,7 +16,7 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: Helvetica, sans-serif;
-  line-height: 1.6;
+  line-height: 1.8;
   background: url("/img/debut_light.png");
 }
 
@@ -53,6 +53,10 @@ header p {
 header nav {
   float: right;
 }
+/* line 55, ../sass/main.scss */
+header ul {
+  list-style: none;
+}
 /* line 59, ../sass/main.scss */
 header ul > li {
   display: inline-block;
@@ -61,25 +65,30 @@ header ul > li {
 
 /* line 65, ../sass/main.scss */
 #content {
-  padding-bottom: 40px;
+  padding-bottom: 43px;
   /* Height of the footer element */
 }
 
 /* line 69, ../sass/main.scss */
 footer {
   width: 100%;
-  height: 40px;
+  height: 43px;
   position: absolute;
   bottom: 0;
   left: 0;
 }
+/* line 76, ../sass/main.scss */
+footer > p {
+  text-align: center;
+  font-size: 12px;
+}
 
-/* line 77, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 .post-list {
   margin: 0;
   padding: 25px 0;
 }
-/* line 81, ../sass/main.scss */
+/* line 86, ../sass/main.scss */
 .post-list li {
   list-style: none;
 }

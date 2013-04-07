@@ -1,6 +1,6 @@
 @import "compass/css3/box-shadow";
 
-$footer-height: 40px;
+$footer-height: 43px;
 
 h1,h2,h3,h4,h5,h6 {
     font-family: Georgia, serif;
@@ -17,7 +17,7 @@ html,body {
     padding: 0;
     height: 100%;
     font-family: Helvetica, sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     background: url("/img/debut_light.png");
 }
 
@@ -53,7 +53,7 @@ header {
     }
 
     ul {
-
+        list-style: none;
     }
 
     ul > li {
@@ -72,6 +72,11 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
+
+    > p {
+        text-align: center;
+        font-size: 12px;
+    }
 }
 
 .post-list {
