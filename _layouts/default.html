@@ -9,7 +9,9 @@
 
         <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,28 +21,36 @@
     <body>
 
         <div id="wrapper">
-            <header>
-                <a href="/"><h1>huggies</h1></a>
+            <nav class="header-nav">
+                <ul class="header-links inline-list">
+                    <li>
+                        <a href="/blog"><i class="icon-book"></i> Blog</a>
+                    </li>
+                    <li>
+                        <a href="/resume"><i class="icon-certificate"></i> Resume</a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/bighuggies/"><i class="icon-twitter-sign"></i> Twitter</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/bighuggies/"><i class="icon-github-sign"></i> GitHub</a>
+                    </li>
+                    <li>
+                        <a href="http://www.linkedin.com/pub/andrew-hughson/3a/504/200"><i class="icon-linkedin-sign"></i> LinkedIn</a>
+                    </li>
+                    <li>
+                        <a href="mailto:andrew@hughson.me"><i class="icon-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </nav>
 
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="https://twitter.com/bighuggies/"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/bighuggies/"><i class="icon-github"></i></a>
-                        </li>
-                    </ul>
-                </nav>
+            <header class="page-header">
+                <a href="/"><h1 class="page-title">hughson.me</h1></a>
             </header>
 
             <div id="content">
                 {{ content }}
             </content>
-
-            <footer>
-                <p>hey, don't steal and stuff<p>
-            </footer>
         </div>
 
         <script>

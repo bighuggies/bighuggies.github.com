@@ -1,94 +1,99 @@
-/* line 5, ../sass/main.scss */
+/* line 1, ../sass/main.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: Georgia, serif;
-  font-weight: lighter;
+  font-family: "Droid Serif", serif;
+  font-weight: 200;
+  color: slategray;
+  margin: 0.5em 0 0.2em 0;
 }
 
-/* line 10, ../sass/main.scss */
+/* line 8, ../sass/main.scss */
 a {
-  text-decoration: none;
   color: orange;
+  text-decoration: none;
 }
 
-/* line 15, ../sass/main.scss */
+/* line 13, ../sass/main.scss */
+p {
+  margin: 0.5em 0 1em 0;
+}
+
+/* line 17, ../sass/main.scss */
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: Helvetica, sans-serif;
+  font-family: "Droid Sans", sans-serif;
   line-height: 1.8;
-  background: url("/img/debut_light.png");
+  background: snow;
+  color: dimgray;
+  font-size: 105%;
 }
 
-/* line 24, ../sass/main.scss */
-#wrapper {
-  min-height: 100%;
-  width: 820px;
-  position: relative;
-  margin: 0 auto;
-  padding: 0 40px;
-  border-left: 1px solid silver;
-  border-right: 1px solid silver;
-  background: rgba(240, 240, 240, 0.5);
-}
-
-/* line 35, ../sass/main.scss */
-header {
-  padding: 25px 0;
-  border-bottom: 1px solid silver;
-}
-/* line 39, ../sass/main.scss */
-header h1 {
-  margin: 0;
-}
-/* line 43, ../sass/main.scss */
-header a {
-  display: inline-block;
-}
-/* line 47, ../sass/main.scss */
-header p {
-  margin: 0;
-}
-/* line 51, ../sass/main.scss */
-header nav {
+/* line 27, ../sass/main.scss */
+.pull-right {
   float: right;
 }
-/* line 55, ../sass/main.scss */
-header ul {
+
+/* line 31, ../sass/main.scss */
+.inline-list {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
-/* line 59, ../sass/main.scss */
-header ul > li {
+/* line 36, ../sass/main.scss */
+.inline-list > li {
   display: inline-block;
-  padding: 0 5px;
+  padding: 0 5px 0 0;
 }
 
-/* line 65, ../sass/main.scss */
-#content {
-  padding-bottom: 43px;
-  /* Height of the footer element */
+/* line 42, ../sass/main.scss */
+#wrapper {
+  min-height: 100%;
+  position: relative;
 }
 
-/* line 69, ../sass/main.scss */
-footer {
-  width: 100%;
-  height: 43px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+/* line 47, ../sass/main.scss */
+.header-nav {
+  margin: 20px auto;
 }
-/* line 76, ../sass/main.scss */
-footer > p {
+
+/* line 51, ../sass/main.scss */
+.header-links {
   text-align: center;
-  font-size: 12px;
+}
+/* line 54, ../sass/main.scss */
+.header-links li {
+  padding-right: 60px;
+  text-transform: uppercase;
 }
 
-/* line 82, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
+.page-header {
+  background: #640a50;
+  border-top: 2px solid orange;
+  border-bottom: 2px solid orange;
+}
+
+/* line 66, ../sass/main.scss */
+.page-title {
+  color: snow;
+  width: 820px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+/* line 73, ../sass/main.scss */
+#content {
+  width: 820px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* line 79, ../sass/main.scss */
 .post-list {
   margin: 0;
   padding: 25px 0;
 }
-/* line 86, ../sass/main.scss */
+/* line 83, ../sass/main.scss */
 .post-list li {
   list-style: none;
 }
