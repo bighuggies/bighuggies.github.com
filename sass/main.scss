@@ -1,4 +1,4 @@
-@import "compass/utilities/general/clearfix";
+@import "compass/css3/transition";
 
 h1,h2,h3,h4,h5,h6 {
     font-family: "Droid Serif", serif;
@@ -49,6 +49,15 @@ html,body {
 .header-container {
     width: 820px;
     margin: 0 auto;
+
+    a {
+        text-shadow: 1px 1px 1px black;
+        @include transition(text-shadow 0.4s);
+    }
+
+    a:hover {
+        text-shadow: 1px 1px 5px black;
+    }
 }
 
 .header-nav {

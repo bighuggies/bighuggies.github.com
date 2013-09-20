@@ -56,26 +56,38 @@ html, body {
   width: 820px;
   margin: 0 auto;
 }
+/* line 53, ../sass/main.scss */
+.header-container a {
+  text-shadow: 1px 1px 1px black;
+  -webkit-transition: text-shadow 0.4s;
+  -moz-transition: text-shadow 0.4s;
+  -o-transition: text-shadow 0.4s;
+  transition: text-shadow 0.4s;
+}
+/* line 58, ../sass/main.scss */
+.header-container a:hover {
+  text-shadow: 1px 1px 5px black;
+}
 
-/* line 54, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 .header-nav {
   padding-left: 250px;
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 61, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 .header-links > li {
   padding-right: 20px;
   text-transform: uppercase;
 }
 
-/* line 67, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 .page-header {
   background: darkmagenta;
 }
 
-/* line 71, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 .page-title {
   display: inline-block;
   vertical-align: middle;
@@ -84,19 +96,19 @@ html, body {
   padding: 30px 0;
 }
 
-/* line 79, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 #content {
   width: 820px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
-/* line 85, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 .post-list {
   margin: 0;
   padding: 25px 0;
 }
-/* line 89, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 .post-list li {
   list-style: none;
 }
