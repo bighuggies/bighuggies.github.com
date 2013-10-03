@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Andrew Hughson</title>
+        <title>{{ page.title }}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -19,47 +19,14 @@
         <![endif]-->
     </head>
     <body>
-
         <div id="wrapper">
-            <header class="page-header">
-                <div class="header-container">
-                    <a href="/"><h1 class="page-title">hughson.me</h1></a>
-
-                    <nav class="header-nav">
-                        <ul class="header-links inline-list">
-                            <li>
-                                <a href="/blog"><i class="icon-book"></i> Blog</a>
-                            </li>
-                            <li>
-                                <a href="/resume"><i class="icon-certificate"></i> Résumé</a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/bighuggies/"><i class="icon-twitter-sign"></i></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/bighuggies/"><i class="icon-github-sign"></i></a>
-                            </li>
-                            <li>
-                                <a href="http://www.linkedin.com/pub/andrew-hughson/3a/504/200"><i class="icon-linkedin-sign"></i></a>
-                            </li>
-                            <li>
-                                <a href="mailto:andrew@hughson.me"><i class="icon-envelope"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+            {% include header.html %}
 
             <div id="content">
                 {{ content }}
-            </content>
-        </div>
+            </div>
 
-        <script>
-            var _gaq=[['_setAccount','UA-39613144-1'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
+            {% include footer.html %}
+        </div>
     </body>
 </html>
