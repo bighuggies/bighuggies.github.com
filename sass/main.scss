@@ -1,38 +1,44 @@
 @import "compass/css3/transition";
+@import "compass/css3/transform";
+
+$color-background: #F6F6F6;
+$color-sidebar: #DDD;
+$color-links: #444;
+$color-text: #222;
+
+$content-margin: 60px;
+$content-width: 620px;
+
+$sidebar-width: 480px;
+$medium-sidebar-width: 300px;
+$medium-content-margin: 20px;
+
+html, body {
+    font-family: "Droid Sans", sans-serif;
+    line-height: 1.8;
+    background: $color-background;
+    color: $color-text;
+}
 
 h1,h2,h3,h4,h5,h6 {
     font-family: "Droid Serif", serif;
     font-weight: 200;
-    color: slategray;
+    color: $color-text;
     margin: 0.5em 0 0.2em 0;
 }
 
 a {
-    color: orange;
+    color: $color-links;
     text-decoration: none;
     @include transition(text-shadow 0.2s);
 
     &:hover {
-        text-shadow: 0 0 1px darkorange;
+        text-shadow: 0 0 1px lighten($color-links, 20);
     }
 }
 
 p {
-    margin: 0.5em 0 1em 0;
-}
-
-html,body {
-    margin: 0;
-    padding: 0;
-    font-family: "Droid Sans", sans-serif;
-    line-height: 1.8;
-    background: snow;
-    color: dimgray;
-    font-size: 105%;
-}
-
-.pull-right {
-    float: right;
+    margin: 0.5em 0 2em 0;
 }
 
 .inline-list {
@@ -51,50 +57,60 @@ html,body {
     position: relative;
 }
 
-.header-container {
-    width: 820px;
-    margin: 0 auto;
-    padding: 20px 0;
-    white-space: nowrap;
-
-    a {
-        text-shadow: 1px 1px 1px black;
-        @include transition(text-shadow 0.5s);
-    }
-
-    a:hover {
-        text-shadow: 1px 1px 12px black;
-    }
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: $sidebar-width;
+    height: 100%;
+    background: $color-sidebar;
+    text-align: center;
 }
 
-.header-nav {
-    padding-left: 250px;
-    display: inline-block;
-    vertical-align: middle;
+.content {
+    max-width: $content-width;
+    margin: $content-margin 0 0 $content-margin + $sidebar-width;
+    padding: 0 40px;
+}
+
+.sidebar-element {
+    margin: 20px 0;
+}
+
+.page-header {
+    position: relative;
+    top: 50%;
+    @include transform(translateY(-50%));
+}
+
+.page-title {
+    font-size: 2em;
+    text-align: center;
 }
 
 .header-links {
     > li {
         padding-right: 20px;
-        text-transform: uppercase;
+        font-size: 1.4em;
     }
 }
 
-.page-header {
-    background: darkmagenta;
+.post {
+    margin-bottom: 50px;
 }
 
-.page-title {
-    display: inline-block;
-    vertical-align: middle;
-    color: snow;
-    margin: 0;
-}
+.post-header {
+    > h1 {
+        color: $color-text;
+        margin: 0;
+        line-height: 40px;
+        font-size: 2em
+    }
 
-#content {
-    width: 820px;
-    margin: 0 auto;
-    padding: 0 40px;
+    > h2 {
+        margin: 0;
+        font-size: 1.4em;
+    }
 }
 
 .post-list {
@@ -106,3 +122,48 @@ html,body {
     }
 }
 
+@media (max-width: 1366px) {
+    body {
+        font-size: .9em;
+    }
+
+    .sidebar {
+        min-width: $medium-sidebar-width;
+    }
+
+    .content {
+        margin:  $medium-content-margin 0 0 $medium-content-margin + $medium-sidebar-width;
+    }
+}
+
+@media (max-width: 769px) {
+    body {
+        font-size: .8em;
+    }
+
+    .sidebar {
+        position: relative;
+        right: 0;
+        height: 100%;
+    }
+
+    .sidebar-element {
+        margin: 5px 0;
+    }
+
+    .page-header {
+        @include transform(none);
+    }
+
+    .header-links {
+        font-size: 1.5em;
+    }
+
+    .avatar {
+        display: none;
+    }
+
+    .content {
+        margin: 10px;
+    }
+}

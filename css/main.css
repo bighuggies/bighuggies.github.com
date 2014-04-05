@@ -1,123 +1,185 @@
-/* line 3, ../sass/main.scss */
+/* line 16, ../sass/main.scss */
+html, body {
+  font-family: "Droid Sans", sans-serif;
+  line-height: 1.8;
+  background: #f6f6f6;
+  color: #222222;
+}
+
+/* line 23, ../sass/main.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Droid Serif", serif;
   font-weight: 200;
-  color: slategray;
+  color: #222222;
   margin: 0.5em 0 0.2em 0;
 }
 
-/* line 10, ../sass/main.scss */
+/* line 30, ../sass/main.scss */
 a {
-  color: orange;
+  color: #444444;
   text-decoration: none;
   -webkit-transition: text-shadow 0.2s;
   -moz-transition: text-shadow 0.2s;
   -o-transition: text-shadow 0.2s;
   transition: text-shadow 0.2s;
 }
-/* line 15, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
 a:hover {
-  text-shadow: 0 0 1px darkorange;
+  text-shadow: 0 0 1px #777777;
 }
 
-/* line 20, ../sass/main.scss */
+/* line 40, ../sass/main.scss */
 p {
-  margin: 0.5em 0 1em 0;
+  margin: 0.5em 0 2em 0;
 }
 
-/* line 24, ../sass/main.scss */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: "Droid Sans", sans-serif;
-  line-height: 1.8;
-  background: snow;
-  color: dimgray;
-  font-size: 105%;
-}
-
-/* line 34, ../sass/main.scss */
-.pull-right {
-  float: right;
-}
-
-/* line 38, ../sass/main.scss */
+/* line 44, ../sass/main.scss */
 .inline-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 43, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 .inline-list > li {
   display: inline-block;
   padding: 0 5px 0 0;
 }
 
-/* line 49, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 #wrapper {
   min-height: 100%;
   position: relative;
 }
 
-/* line 54, ../sass/main.scss */
-.header-container {
-  width: 820px;
-  margin: 0 auto;
-  padding: 20px 0;
-  white-space: nowrap;
-}
 /* line 60, ../sass/main.scss */
-.header-container a {
-  text-shadow: 1px 1px 1px black;
-  -webkit-transition: text-shadow 0.5s;
-  -moz-transition: text-shadow 0.5s;
-  -o-transition: text-shadow 0.5s;
-  transition: text-shadow 0.5s;
-}
-/* line 65, ../sass/main.scss */
-.header-container a:hover {
-  text-shadow: 1px 1px 12px black;
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 480px;
+  height: 100%;
+  background: #dddddd;
+  text-align: center;
 }
 
 /* line 70, ../sass/main.scss */
-.header-nav {
-  padding-left: 250px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-/* line 77, ../sass/main.scss */
-.header-links > li {
-  padding-right: 20px;
-  text-transform: uppercase;
-}
-
-/* line 83, ../sass/main.scss */
-.page-header {
-  background: darkmagenta;
-}
-
-/* line 87, ../sass/main.scss */
-.page-title {
-  display: inline-block;
-  vertical-align: middle;
-  color: snow;
-  margin: 0;
-}
-
-/* line 94, ../sass/main.scss */
-#content {
-  width: 820px;
-  margin: 0 auto;
+.content {
+  max-width: 620px;
+  margin: 60px 0 0 540px;
   padding: 0 40px;
 }
 
-/* line 100, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
+.sidebar-element {
+  margin: 20px 0;
+}
+
+/* line 80, ../sass/main.scss */
+.page-header {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 86, ../sass/main.scss */
+.page-title {
+  font-size: 2em;
+  text-align: center;
+}
+
+/* line 92, ../sass/main.scss */
+.header-links > li {
+  padding-right: 20px;
+  font-size: 1.4em;
+}
+
+/* line 98, ../sass/main.scss */
+.post {
+  margin-bottom: 50px;
+}
+
+/* line 103, ../sass/main.scss */
+.post-header > h1 {
+  color: #222222;
+  margin: 0;
+  line-height: 40px;
+  font-size: 2em;
+}
+/* line 110, ../sass/main.scss */
+.post-header > h2 {
+  margin: 0;
+  font-size: 1.4em;
+}
+
+/* line 116, ../sass/main.scss */
 .post-list {
   margin: 0;
   padding: 25px 0;
 }
-/* line 104, ../sass/main.scss */
+/* line 120, ../sass/main.scss */
 .post-list li {
   list-style: none;
+}
+
+@media (max-width: 1366px) {
+  /* line 126, ../sass/main.scss */
+  body {
+    font-size: .9em;
+  }
+
+  /* line 130, ../sass/main.scss */
+  .sidebar {
+    min-width: 300px;
+  }
+
+  /* line 134, ../sass/main.scss */
+  .content {
+    margin: 20px 0 0 320px;
+  }
+}
+@media (max-width: 769px) {
+  /* line 140, ../sass/main.scss */
+  body {
+    font-size: .8em;
+  }
+
+  /* line 144, ../sass/main.scss */
+  .sidebar {
+    position: relative;
+    right: 0;
+    height: 100%;
+  }
+
+  /* line 150, ../sass/main.scss */
+  .sidebar-element {
+    margin: 5px 0;
+  }
+
+  /* line 154, ../sass/main.scss */
+  .page-header {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+
+  /* line 158, ../sass/main.scss */
+  .header-links {
+    font-size: 1.5em;
+  }
+
+  /* line 162, ../sass/main.scss */
+  .avatar {
+    display: none;
+  }
+
+  /* line 166, ../sass/main.scss */
+  .content {
+    margin: 10px;
+  }
 }

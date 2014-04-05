@@ -1,24 +1,15 @@
 ---
 layout: default
 ---
-<h1>Hi,</h1>
-<p>
-    I'm Andrew. Welcome to my website. Use the navigation above to see my blog, my resume, and my associated social media accounts.
-</p>
 
-<h1>Stuff</h1>
-
-<h2>mcnagg</h2>
-
-<p>
-    Mindcrack is a network of loosely associated YouTubers who create let's play content with one another. <a href="http://mcnagg.tv">mcnagg</a> is an aggregator which shows the latest videos, tweets, and community content for the Mindcrack network.
-</p>
-
-<h2>SESA</h2>
-
-<p>I'm involved with my university's <a href="http://sesa.org.nz">Software Engineering Student's Association</a> as the vice president. For more information, visit the SESA website. To contact SESA, email <a href="mailto:exec@sesa.org.nz">us here</a>.</p>
-
-<h2>Misc</h2>
-
-<p>To check out stuff I'm working on, see my <a href="http://github.com/bighuggies">GitHub.</a></p>
+{% for post in site.posts %}
+	<article class="post">
+		<header class="post-header">
+			<h1><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></h1>
+			<h2>{{ post.date | date_to_long_string }}</h2>
+		</header>
+		{{ post.excerpt }}
+    <a class="post-link" href="{{post.url}}">Read More</a>
+	</article>
+{% endfor %}
 
