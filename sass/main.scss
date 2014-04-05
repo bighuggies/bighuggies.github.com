@@ -3,7 +3,7 @@
 
 $color-background: #F6F6F6;
 $color-sidebar: #DDD;
-$color-links: #444;
+$color-links: #DD1111;
 $color-text: #222;
 
 $content-margin: 60px;
@@ -25,6 +25,14 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 200;
     color: $color-text;
     margin: 0.5em 0 0.2em 0;
+}
+
+h1 > a, h2 > a {
+    color: $color-text;
+
+    &:hover {
+        text-shadow: 0 0 1px lighten($color-text, 20);
+    }
 }
 
 a {
@@ -92,6 +100,14 @@ p {
     > li {
         padding-right: 20px;
         font-size: 1.4em;
+    }
+
+    a {
+        color: $color-text;
+
+        &:hover {
+            text-shadow: 0 0 1px lighten($color-text, 20);
+        }
     }
 }
 
