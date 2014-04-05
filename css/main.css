@@ -143,23 +143,18 @@ p {
 }
 @media (max-width: 769px) {
   /* line 140, ../sass/main.scss */
-  body {
-    font-size: .8em;
-  }
-
-  /* line 144, ../sass/main.scss */
   .sidebar {
     position: relative;
     right: 0;
     height: 100%;
   }
 
-  /* line 150, ../sass/main.scss */
+  /* line 146, ../sass/main.scss */
   .sidebar-element {
     margin: 5px 0;
   }
 
-  /* line 154, ../sass/main.scss */
+  /* line 150, ../sass/main.scss */
   .page-header {
     -webkit-transform: none;
     -moz-transform: none;
@@ -168,18 +163,19 @@ p {
     transform: none;
   }
 
-  /* line 158, ../sass/main.scss */
+  /* line 154, ../sass/main.scss */
   .header-links {
     font-size: 1.5em;
   }
 
-  /* line 162, ../sass/main.scss */
+  /* line 158, ../sass/main.scss */
   .avatar {
     display: none;
   }
 
-  /* line 166, ../sass/main.scss */
+  /* line 162, ../sass/main.scss */
   .content {
-    margin: 10px;
+    margin: 20px;
+    padding: 0;
   }
 }

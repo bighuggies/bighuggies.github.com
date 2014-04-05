@@ -137,10 +137,6 @@ p {
 }
 
 @media (max-width: 769px) {
-    body {
-        font-size: .8em;
-    }
-
     .sidebar {
         position: relative;
         right: 0;
@@ -164,6 +160,7 @@ p {
     }
 
     .content {
-        margin: 10px;
+        margin: 20px;
+        padding: 0;
     }
 }
