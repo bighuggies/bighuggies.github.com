@@ -132,52 +132,47 @@ p {
   line-height: 40px;
   font-size: 2em;
 }
-/* line 131, ../sass/main.scss */
-.post-header > h2 {
-  margin: 0;
-  font-size: 1.4em;
-}
 
-/* line 137, ../sass/main.scss */
+/* line 132, ../sass/main.scss */
 .post-list {
   margin: 0;
   padding: 25px 0;
 }
-/* line 141, ../sass/main.scss */
+/* line 136, ../sass/main.scss */
 .post-list li {
   list-style: none;
 }
 
 @media (max-width: 1366px) {
-  /* line 147, ../sass/main.scss */
+  /* line 142, ../sass/main.scss */
   body {
     font-size: .9em;
   }
 
-  /* line 151, ../sass/main.scss */
+  /* line 146, ../sass/main.scss */
   .sidebar {
     min-width: 300px;
   }
 
-  /* line 155, ../sass/main.scss */
+  /* line 150, ../sass/main.scss */
   .content {
     margin: 20px 0 0 320px;
   }
 }
 @media (max-width: 769px) {
-  /* line 161, ../sass/main.scss */
+  /* line 156, ../sass/main.scss */
   .sidebar {
     position: relative;
     right: 0;
     height: 100%;
   }
 
-  /* line 167, ../sass/main.scss */
+  /* line 162, ../sass/main.scss */
   .sidebar-element {
     margin: 5px 0;
   }
 
-  /* line 171, ../sass/main.scss */
+  /* line 166, ../sass/main.scss */
   .page-header {
     -webkit-transform: none;
     -moz-transform: none;
@@ -186,17 +181,17 @@ p {
     transform: none;
   }
 
-  /* line 175, ../sass/main.scss */
+  /* line 170, ../sass/main.scss */
   .header-links {
     font-size: 1.5em;
   }
 
-  /* line 179, ../sass/main.scss */
+  /* line 174, ../sass/main.scss */
   .avatar {
     display: none;
   }
 
-  /* line 183, ../sass/main.scss */
+  /* line 178, ../sass/main.scss */
   .content {
     margin: 20px;
     padding: 0;
