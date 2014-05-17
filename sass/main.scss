@@ -145,6 +145,13 @@ p {
     font-weight: 700;
 }
 
+.post-content img {
+    max-width: $content-width;
+    border: 5px solid #fff;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px silver;
+}
+
 .post-list {
     margin: 0;
     padding: 25px 0;
