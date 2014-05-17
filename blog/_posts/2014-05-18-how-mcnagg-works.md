@@ -8,8 +8,6 @@ blog post for a while now, so here's one on [mcnagg](http://mcnagg.tv), why I
 made it, what it does, and how it works (also a rambly middle section where I go
 on about merging Python iterators).
 
-
-
 ## What is mcnagg?
 
 mcnagg is the **M**ind**C**rack **N**etwork **agg**regator. If you aren't
@@ -29,7 +27,7 @@ also shows the latest tweets from the Mindcrackers and the top few
 [/r/mindcrack](https://reddit.com/r/mindcrack) posts, but that's mainly just to
 fill out the right hand side of the page and isn't terribly interesting.
 
-By the way, I am aware that the name is terrible.
+By the way, I am aware that the name mcnagg is terrible.
 
 ## How does it work?
 
@@ -133,3 +131,4 @@ actually a post I've been meaning to write for months) but hopefully Mike
 appreciates the additional SEO he gets from me linking him. Also, if you'd like
 to see the source for mcnagg (and the aforementioned iterator merging) you can
 of course [view it here](https://github.com/bighuggies/mcnagg).
+
