@@ -3,6 +3,8 @@ title: Merging Iterators in Python
 layout: post
 ---
 
+Python iterators lel
+
 ## Merging iterators
 
 * Getting videos from a bunch of different YouTube channels
