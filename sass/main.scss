@@ -27,6 +27,10 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0.5em 0 0.2em 0;
 }
 
+p + h2 {
+    margin-top: 2.5em;
+}
+
 h1 > a, h2 > a {
     display: block;
     color: $color-text;
@@ -164,7 +168,7 @@ p {
     .sidebar {
         position: relative;
         right: 0;
-        height: 180px;
+        height: 220px;
         box-shadow: inset 0 -1px 18px #ccc;
     }
 
@@ -185,7 +189,7 @@ p {
     }
 
     .content {
-        margin: 10px;
+        margin: 15px;
         margin-top: 20px;
         padding: 0;
     }
