@@ -7,6 +7,9 @@ $color-sidebar-border: #CCC;
 $color-links: #DD1111;
 $color-text: #222;
 
+$thumbnail-border-color: #FFF;
+$thumbnail-shadow-color: #CCC;
+
 $sidebar-width: 480px;
 $content-width: 620px;
 
@@ -147,9 +150,9 @@ p {
 
 .post-content img {
     max-width: $content-width;
-    border: 5px solid #fff;
+    border: 5px solid $thumbnail-border-color;
     border-radius: 4px;
-    box-shadow: 1px 1px 1px silver;
+    box-shadow: 0 0 8px $thumbnail-shadow-color;
 }
 
 .post-list {

@@ -1,4 +1,4 @@
-/* line 15, ../sass/main.scss */
+/* line 18, ../sass/main.scss */
 html, body {
   font-family: "Oxygen", "Helvetica", sans-serif;
   line-height: 1.8;
@@ -6,7 +6,7 @@ html, body {
   color: #222222;
 }
 
-/* line 22, ../sass/main.scss */
+/* line 25, ../sass/main.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: Georgia, serif;
   line-height: 1.4;
@@ -15,22 +15,22 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.5em 0 0.2em 0;
 }
 
-/* line 30, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 p + h2 {
   margin-top: 2.5em;
 }
 
-/* line 34, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 h1 > a, h2 > a {
   display: block;
   color: #222222;
 }
-/* line 38, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 h1 > a:hover, h2 > a:hover {
   text-shadow: 0 0 1px #555555;
 }
 
-/* line 43, ../sass/main.scss */
+/* line 46, ../sass/main.scss */
 a {
   color: #dd1111;
   text-decoration: none;
@@ -39,36 +39,36 @@ a {
   -o-transition: text-shadow 0.2s;
   transition: text-shadow 0.2s;
 }
-/* line 48, ../sass/main.scss */
+/* line 51, ../sass/main.scss */
 a:hover {
   text-shadow: 0 0 1px #f36161;
 }
 
-/* line 53, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 p {
   font-weight: 300;
   margin: 0.5em 0 2em 0;
 }
 
-/* line 58, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 .inline-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 63, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 .inline-list > li {
   display: inline-block;
   padding: 0 5px 0 0;
 }
 
-/* line 69, ../sass/main.scss */
+/* line 72, ../sass/main.scss */
 #wrapper {
   min-height: 100%;
   position: relative;
 }
 
-/* line 74, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 .sidebar {
   position: fixed;
   top: 0;
@@ -80,24 +80,24 @@ p {
   box-shadow: inset -1px 0 12px #ccc;
 }
 
-/* line 85, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 .content {
   max-width: 620px;
   margin: 60px 0 60px 580px;
 }
 
-/* line 90, ../sass/main.scss */
+/* line 93, ../sass/main.scss */
 .sidebar-element {
   margin: 20px 0;
 }
 
-/* line 94, ../sass/main.scss */
+/* line 97, ../sass/main.scss */
 .avatar {
   border-radius: 50%;
   border: 3px solid #F6F6F6;
 }
 
-/* line 99, ../sass/main.scss */
+/* line 102, ../sass/main.scss */
 .page-header {
   position: relative;
   top: 50%;
@@ -108,39 +108,39 @@ p {
   transform: translateY(-50%);
 }
 
-/* line 105, ../sass/main.scss */
+/* line 108, ../sass/main.scss */
 .page-title {
   font-size: 2em;
   text-align: center;
   margin-top: 0;
 }
 
-/* line 112, ../sass/main.scss */
+/* line 115, ../sass/main.scss */
 .header-links > li {
   padding-right: 20px;
   font-size: 1.4em;
 }
-/* line 117, ../sass/main.scss */
+/* line 120, ../sass/main.scss */
 .header-links a {
   color: #222222;
 }
-/* line 120, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
 .header-links a:hover {
   text-shadow: 0 0 1px #555555;
 }
 
-/* line 126, ../sass/main.scss */
+/* line 129, ../sass/main.scss */
 .read-more {
   position: relative;
   top: -20px;
 }
 
-/* line 131, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 .post {
   margin-bottom: 30px;
 }
 
-/* line 136, ../sass/main.scss */
+/* line 139, ../sass/main.scss */
 .post-header > h1 {
   color: #222222;
   margin: 0;
@@ -148,42 +148,42 @@ p {
   font-size: 2em;
 }
 
-/* line 144, ../sass/main.scss */
+/* line 147, ../sass/main.scss */
 .post-timestamp {
   font-weight: 700;
 }
 
-/* line 148, ../sass/main.scss */
+/* line 151, ../sass/main.scss */
 .post-content img {
   max-width: 620px;
-  border: 5px solid #fff;
+  border: 5px solid white;
   border-radius: 4px;
-  box-shadow: 1px 1px 1px silver;
+  box-shadow: 0 0 8px #cccccc;
 }
 
-/* line 155, ../sass/main.scss */
+/* line 158, ../sass/main.scss */
 .post-list {
   margin: 0;
   padding: 25px 0;
 }
-/* line 159, ../sass/main.scss */
+/* line 162, ../sass/main.scss */
 .post-list li {
   list-style: none;
 }
 
 @media (max-width: 1366px) {
-  /* line 165, ../sass/main.scss */
+  /* line 168, ../sass/main.scss */
   .sidebar {
     min-width: 340px;
   }
 
-  /* line 169, ../sass/main.scss */
+  /* line 172, ../sass/main.scss */
   .content {
     margin: 40px 0 40px 420px;
   }
 }
 @media (max-width: 769px) {
-  /* line 175, ../sass/main.scss */
+  /* line 178, ../sass/main.scss */
   .sidebar {
     position: relative;
     right: 0;
@@ -191,27 +191,27 @@ p {
     box-shadow: inset 0 -1px 18px #ccc;
   }
 
-  /* line 182, ../sass/main.scss */
+  /* line 185, ../sass/main.scss */
   .sidebar-element {
     margin: 5px 0;
   }
 
-  /* line 186, ../sass/main.scss */
+  /* line 189, ../sass/main.scss */
   .page-title {
     margin-top: 0;
   }
 
-  /* line 190, ../sass/main.scss */
+  /* line 193, ../sass/main.scss */
   .header-links {
     font-size: 1.4em;
   }
 
-  /* line 194, ../sass/main.scss */
+  /* line 197, ../sass/main.scss */
   .avatar {
     display: none;
   }
 
-  /* line 198, ../sass/main.scss */
+  /* line 201, ../sass/main.scss */
   .content {
     margin: 15px;
     margin-top: 20px;
