@@ -6,7 +6,8 @@ layout: default
 	<article class="post">
         {% include post_header.html post=post %}
         {{ post.excerpt }}
-        <a class="post-link read-more" href="{{post.url}}">read more ...</a>
+        <footer class="post-footer">
+            <a class="post-link read-more" href="{{post.url}}">read more ...</a>
+        </footer>
 	</article>
 {% endfor %}
-

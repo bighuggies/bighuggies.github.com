@@ -2,32 +2,33 @@
 @import "compass/css3/transform";
 
 $color-background: #F6F6F6;
-$color-sidebar: #DDD;
+$color-sidebar: #EEE;
+$color-sidebar-border: #CCC;
 $color-links: #DD1111;
 $color-text: #222;
 
-$content-margin: 60px;
+$sidebar-width: 480px;
 $content-width: 620px;
 
-$sidebar-width: 480px;
-$medium-sidebar-width: 300px;
-$medium-content-margin: 20px;
+$medium-sidebar-width: 340px;
 
 html, body {
-    font-family: "Droid Sans", sans-serif;
+    font-family: "Clear Sans", "Helvetica", sans-serif;
     line-height: 1.8;
     background: $color-background;
     color: $color-text;
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: "Droid Serif", serif;
+    font-family: Georgia, serif;
+    line-height: 1.4;
     font-weight: 200;
     color: $color-text;
     margin: 0.5em 0 0.2em 0;
 }
 
 h1 > a, h2 > a {
+    display: block;
     color: $color-text;
 
     &:hover {
@@ -73,12 +74,12 @@ p {
     height: 100%;
     background: $color-sidebar;
     text-align: center;
+    box-shadow: inset -1px 0 12px #ccc;
 }
 
 .content {
     max-width: $content-width;
-    margin: $content-margin 0 0 $content-margin + $sidebar-width;
-    padding: 0 40px;
+    margin: 60px 0 60px (100px + $sidebar-width);
 }
 
 .sidebar-element {
@@ -86,7 +87,7 @@ p {
 }
 
 .avatar {
-    border-radius: 100%;
+    border-radius: 50%;
     border: 3px solid #eee;
 }
 
@@ -99,6 +100,7 @@ p {
 .page-title {
     font-size: 2em;
     text-align: center;
+    margin-top: 0;
 }
 
 .header-links {
@@ -134,6 +136,10 @@ p {
     }
 }
 
+.post-timestamp {
+    font-weight: 700;
+}
+
 .post-list {
     margin: 0;
     padding: 25px 0;
@@ -144,16 +150,12 @@ p {
 }
 
 @media (max-width: 1366px) {
-    body {
-        font-size: .9em;
-    }
-
     .sidebar {
         min-width: $medium-sidebar-width;
     }
 
     .content {
-        margin:  $medium-content-margin 0 0 $medium-content-margin + $medium-sidebar-width;
+        margin: 40px 0 40px (80px + $medium-sidebar-width);
     }
 }
 
@@ -161,19 +163,20 @@ p {
     .sidebar {
         position: relative;
         right: 0;
-        height: 100%;
+        height: 180px;
+        box-shadow: inset 0 -1px 18px #ccc;
     }
 
     .sidebar-element {
         margin: 5px 0;
     }
 
-    .page-header {
-        @include transform(none);
+    .page-title {
+        margin-top: 0;
     }
 
     .header-links {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
     .avatar {
@@ -181,7 +184,8 @@ p {
     }
 
     .content {
-        margin: 20px;
+        margin: 10px;
+        margin-top: 20px;
         padding: 0;
     }
 }
