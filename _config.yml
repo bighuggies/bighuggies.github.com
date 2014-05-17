@@ -1,3 +1,6 @@
+name: atsh.me
+description: My blag which I post on
+url: http://atsh.me
 markdown: kramdown
 exclude: [sass, CNAME, config.rb, .gitignore]
 permalink: /blog/:title
