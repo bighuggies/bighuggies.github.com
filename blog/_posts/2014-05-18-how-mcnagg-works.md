@@ -110,11 +110,11 @@ in a cookie). It's very simple and pretty easy to use.
 The site initially started off in Bootstrap 2. Recently I have migrated it to
 Bootstrap 3. Here's how it looked before:
 
-[![mcnagg using Bootstrap 2]({{ site.url }}/assets/mcnagg_bootstrap2.png "mcnagg using Bootstrap 2")](/assets/mcnagg_bootstrap2.png)
+[![mcnagg using Bootstrap 2](/assets/mcnagg_bootstrap2_thumb.png "mcnagg using Bootstrap 2")](/assets/mcnagg_bootstrap2.png)
 
 And here's how it looks now:
 
-[![mcnagg using Bootstrap 3]({{ site.url }}/assets/mcnagg_bootstrap3.png "mcnagg using Bootstrap 3")](/assets/mcnagg_bootstrap3.png)
+[![mcnagg using Bootstrap 3](/assets/mcnagg_bootstrap3_thumb.png "mcnagg using Bootstrap 3")](/assets/mcnagg_bootstrap3.png)
 
 Unfortunately during the transition the site lost a lot of it's customizations,
 so it's looking decidedly more Bootstrappy than it used to. Bootstrap is nice
