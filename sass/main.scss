@@ -15,6 +15,10 @@ $content-width: 620px;
 
 $medium-sidebar-width: 340px;
 
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
 html, body {
     font-family: "Oxygen", "Helvetica", sans-serif;
     line-height: 1.8;
@@ -149,7 +153,7 @@ p {
 }
 
 .post-content img {
-    max-width: $content-width;
+    max-width: 100%;
     border: 5px solid $thumbnail-border-color;
     border-radius: 4px;
     box-shadow: 0 0 8px $thumbnail-shadow-color;

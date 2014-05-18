@@ -13,9 +13,7 @@ on about merging Python iterators).
 mcnagg is the **M**ind**C**rack **N**etwork **agg**regator. If you aren't
 familiar, the [Mindcrack Network](http://mindcracklp.com/) is a group of content
 creators who collaborate on mostly video game based YouTube content. The network
-consists of upwards of 25 members with millions of combined subscribers. From
-what I can tell using Google Analytics, mcnagg seems to have a few dozen regular
-users.
+consists of upwards of 25 members with millions of combined subscribers.
 
 I created mcnagg because at the time (June 2012) YouTube subscriptions really
 sucked (they have gotten better recently, especially with the [collections
@@ -25,7 +23,9 @@ videos. mcnagg aggregates videos from the Mindcrackers into an easy to skim and
 filter list, making it much easier to catch all the videos you want to watch. It
 also shows the latest tweets from the Mindcrackers and the top few
 [/r/mindcrack](https://reddit.com/r/mindcrack) posts, but that's mainly just to
-fill out the right hand side of the page and isn't terribly interesting.
+fill out the right hand side of the page and isn't terribly interesting. From
+what I can tell using Google Analytics, mcnagg seems to have a few dozen regular
+users.
 
 By the way, I am aware that the name mcnagg is terrible.
 
