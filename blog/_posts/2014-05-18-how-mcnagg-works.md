@@ -41,12 +41,12 @@ about.
 
 ## The Tornado part
 
-To be honest I haven't really touched the Tornado part since I originally start
-the project two years ago. All of my more recent web projects in Python have
-been using [Flask](http://flask.pocoo.org/) to create an API which is consumed
-by a JavaScript front end. mcnagg is more traditional; the back end serves up
-HTML which is generated from templates by the server. As far as I can remember,
-Tornado was pretty nice to work with :v.
+To be honest I haven't really touched the Tornado part since I originally
+started the project two years ago. All of my more recent web projects in Python
+have been using [Flask](http://flask.pocoo.org/) to create an API which is
+consumed by a JavaScript front end. mcnagg is more traditional; the back end
+serves up HTML which is generated from templates by the server. As far as I can
+remember, Tornado was pretty nice to work with :v.
 
 ## The data part
 
