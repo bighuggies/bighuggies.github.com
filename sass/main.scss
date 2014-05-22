@@ -19,12 +19,12 @@ $medium-sidebar-width: 340px;
     box-sizing: border-box;
 }
 
-html, body {
+body {
     font-family: "Oxygen", "Helvetica", sans-serif;
+    font-size: 1.2em;
     line-height: 1.8;
     background: $color-background;
     color: $color-text;
-    -webkit-text-stroke: 0.2px; // fuck Chrome font rendering on Windows
 }
 
 h1,h2,h3,h4,h5,h6 {
