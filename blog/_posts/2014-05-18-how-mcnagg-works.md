@@ -116,7 +116,7 @@ And here's how it looks now:
 
 [![mcnagg using Bootstrap 3](/assets/mcnagg_bootstrap3_thumb.png "mcnagg using Bootstrap 3")](/assets/mcnagg_bootstrap3.png)
 
-Unfortunately during the transition the site lost a lot of it's customizations,
+Unfortunately during the transition the site lost a lot of its customizations,
 so it's looking decidedly more Bootstrappy than it used to. Bootstrap is nice
 because it makes it super easy to build responsive sites. mcnagg was the first
 project I really used Bootstrap in and the experience is what really sold me on
