@@ -1,0 +1,22 @@
+{
+  "name": "atsh.me",
+  "version": "0.0.1",
+  "description": "My homepage",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bighuggies/bighuggies.github.com"
+  },
+  "author": "Andrew Hughson",
+  "bugs": {
+    "url": "https://github.com/bighuggies/bighuggies.github.com/issues"
+  },
+  "homepage": "http://atsh.me",
+  "devDependencies": {
+    "connect": "^2.17.1",
+    "gulp": "^3.6.2",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-livereload": "^1.5.0",
+    "gulp-notify": "^1.3.0",
+    "gulp-sass": "^0.7.1"
+  }
+}
