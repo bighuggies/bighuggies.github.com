@@ -13,8 +13,8 @@
 @thumbnail-border-color: #FFF;
 @thumbnail-shadow-color: #CCC;
 
-@sidebar-width: 25%;
-@content-width: 75%;
+@sidebar-width: 480px;
+@content-width: 620px;
 
 *, *:after, *:before {
     box-sizing: border-box;
@@ -96,16 +96,16 @@ p {
 }
 
 .content {
+    margin-left: @sidebar-width;
     position: absolute;
-    right: 0;
-    width: @content-width;
+    left: 0;
 }
 
 .content-inner {
-    @margin: 80px;
-    padding: @margin;
+    @padding: 80px;
+    padding: @padding;
     padding-right: 0;
-    width: 700px;
+    width: @content-width + (2 * @padding);
 }
 
 .sidebar-element {
@@ -212,9 +212,17 @@ p {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1280px) {
     body {
         font-size: 0.975em;
+    }
+
+    .sidebar {
+        width: 360px;
+    }
+
+    .content {
+        margin-left: 360px;
     }
 
     .content-inner {
@@ -254,6 +262,7 @@ p {
 
     .content {
         position: static;
+        margin: 0;
         width: 100%;
     }
 

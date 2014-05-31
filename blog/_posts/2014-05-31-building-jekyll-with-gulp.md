@@ -70,14 +70,16 @@ return styles;
 
 Compiling Less with gulp is a pretty standard task with lots of documentation on
 the internet, so I won't bother explaining this too much. This task compiles
-Less into uglified CSS, which is then prefixed with vendor prefixes using
-[gulp-autoprefixr](https://www.npmjs.org/package/gulp-autoprefixer).
+Less into uglified CSS, which is then prefixed with vendor prefixes using [gulp-
+autoprefixr](https://www.npmjs.org/package/gulp-autoprefixer). The streams are
+combined using [stream-combiner](https://www.npmjs.org/package/stream-combiner),
+allowing me to handle errors in the compilation pipeline without crashing gulp.
 
 ## Watching and Serving
 
-Now I can compile my Jekyll site and the stylesheets, I can create a task which
-will automatically refresh my browser whenever I save changes to any file I'm
-working on.
+Now I can compile my Jekyll site and the stylesheets, I need to create a task
+which will automatically refresh my browser whenever I save changes to any file
+I'm working on.
 
 {% highlight javascript %}
 gulp.task('watch', function() {
@@ -127,7 +129,8 @@ all up than the time I was wasting before. A bit of yak shaving never hurt
 anyone though.
 
 Of course, [the code for this blog is available on
-GitHub](https://github.com/bighuggies/bighuggies.github.com). If you want to see
-the full gulpfile, you can [view it here](https://github.com/bighuggies/bighuggi
+GitHub](https://github.com/bighuggies/bighuggies.github.com) and if you want to
+see the full gulpfile, you can [view it
+here](https://github.com/bighuggies/bighuggi
 es.github.com/blob/master/gulpfile.js).
 
