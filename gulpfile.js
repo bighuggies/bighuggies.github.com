@@ -1,14 +1,15 @@
 var http       = require('http'),
     connect    = require('connect'),
     path       = require('path'),
-    spawn       = require('child_process').spawn,
+    spawn      = require('child_process').spawn,
+    combine    = require('stream-combiner'),
     gulp       = require('gulp'),
-    sass       = require('gulp-sass'),
+    less       = require('gulp-less'),
     livereload = require('gulp-livereload'),
     prefix     = require('gulp-autoprefixer'),
     notify     = require('gulp-notify');
 
-var handleErrors = function() {
+var handleErrors = function(e) {
     var args = Array.prototype.slice.call(arguments);
 
     // Send error to notification center with gulp-notify
@@ -22,10 +23,16 @@ var handleErrors = function() {
 };
 
 gulp.task('styles', function() {
-    return gulp.src('sass/main.scss')
-        .pipe(sass({ outputStyle: "compressed" }))
-        .pipe(prefix())
-        .pipe(gulp.dest('css/'));
+    var styles = combine(
+        gulp.src('less/main.less'),
+        less({"compress": true}),
+        prefix(),
+        gulp.dest('css/')
+    );
+
+    styles.on('error', handleErrors);
+
+    return styles;
 });
 
 gulp.task('jekyll', function() {
@@ -43,7 +50,7 @@ gulp.task('watch', function() {
         server.changed(file.path);
     };
 
-    gulp.watch('sass/**', ['styles']);
+    gulp.watch('less/**', ['styles']);
     gulp.watch(['css/**', '_layouts/**', '_includes/**', 'blog/**'], ['jekyll']);
     gulp.watch(['_site/**']).on('change', reload);
 });
@@ -57,4 +64,4 @@ gulp.task('serve', function() {
 });
 
 gulp.task('build', ['styles', 'jekyll']);
-gulp.task('default', ['build', 'watch', 'serve']);
+gulp.task('default', ['watch', 'serve']);

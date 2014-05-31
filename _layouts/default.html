@@ -13,12 +13,13 @@
 		<link rel="stylesheet" href="/css/main.css">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen:300,700">
+		<link href='http://fonts.googleapis.com/css?family=Merriweather:300,400' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<aside class="sidebar">
 			<header class="page-header">
-				<h1 class="sidebar-element page-title">
-    				<a href="/">Andrew Hughson</a>
+				<h1 class="sidebar-element">
+    				<a href="/" class="page-title">Andrew Hughson</a>
       			</h1>
 
   				<img class="sidebar-element avatar" src="/img/avatar.jpg" alt="Andrew Hughson avatar">
@@ -29,10 +30,10 @@
 							<a href="/blog"><i class="icon-book"></i></a>
 						</li>
 						<li>
-							<a href="https://twitter.com/bighuggies/"><i class="icon-twitter-sign"></i></a>
+							<a href="https://twitter.com/bighuggies/"><i class="icon-twitter"></i></a>
 						</li>
 						<li>
-							<a href="https://github.com/bighuggies/"><i class="icon-github-sign"></i></a>
+							<a href="https://github.com/bighuggies/"><i class="icon-github"></i></a>
 						</li>
 						<li>
 							<a href="mailto:andrew@hughson.me"><i class="icon-envelope"></i></a>
@@ -43,7 +44,9 @@
 		</aside>
 
 		<main class="content">
-			{{ content }}
+			<div class="content-inner">
+				{{ content }}
+			</div>
 		</main>
 
 		<script>
