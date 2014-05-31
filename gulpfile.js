@@ -36,7 +36,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('jekyll', function() {
-    jekyll = spawn('jekyll.bat', ['build']);
+    jekyll = spawn('jekyll.bat', ['build', '--drafts', '--future']);
 
     jekyll.stdout.on('data', function (data) {
         console.log('jekyll:\t' + data); // works fine

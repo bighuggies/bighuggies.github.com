@@ -5,7 +5,9 @@
 @color-background: #F6F6F6;
 @color-sidebar: @charcoal;
 @color-sidebar-border: #CCC;
+
 @color-links: @charcoal-lighter;
+
 @color-text: #222;
 
 @thumbnail-border-color: #FFF;
@@ -44,7 +46,7 @@ h1 > a, h2 > a {
     color: @color-text;
 
     &:hover {
-        text-shadow: 0 0 1px saturate(@color-text, 100%);
+        text-shadow: 0 0 1px lighten(@color-text, 20%);
     }
 }
 
@@ -108,6 +110,7 @@ p {
 
 .sidebar-element {
     margin: 20px 0;
+    text-shadow: 1px 1px 1px black;
 }
 
 .avatar {
@@ -171,11 +174,33 @@ p {
     color: #999;
 }
 
-.post-content img {
-    max-width: 100%;
-    border: 5px solid @thumbnail-border-color;
-    border-radius: 4px;
-    box-shadow: 0 0 8px @thumbnail-shadow-color;
+.post-content {
+    img {
+        max-width: 100%;
+        border: 5px solid @thumbnail-border-color;
+        border-radius: 4px;
+        box-shadow: 0 0 8px @thumbnail-shadow-color;
+    }
+
+    code {
+        background: #eee;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+    }
+
+    pre {
+        background: #eee;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        padding: 5px;
+        line-height: 1.1;
+
+        code {
+            background: none;
+            border: none;
+            font-size: 14px;
+        }
+    }
 }
 
 .post-list {
