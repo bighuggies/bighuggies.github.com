@@ -75,11 +75,11 @@ autoprefixr](https://www.npmjs.org/package/gulp-autoprefixer). The streams are
 combined using [stream-combiner](https://www.npmjs.org/package/stream-combiner),
 allowing me to handle errors in the compilation pipeline without crashing gulp.
 
-## Watching and Serving
+## Compiling on File Change
 
 Now I can compile my Jekyll site and the stylesheets, I need to create a task
-which will automatically refresh my browser whenever I save changes to any file
-I'm working on.
+which will automatically compile my styles and site and refresh my browser
+whenever I save changes to any file I'm working on.
 
 {% highlight javascript %}
 gulp.task('watch', function() {
