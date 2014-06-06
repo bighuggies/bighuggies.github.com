@@ -2,35 +2,19 @@ var http       = require('http'),
     connect    = require('connect'),
     path       = require('path'),
     spawn      = require('child_process').spawn,
-    combine    = require('stream-combiner'),
     gulp       = require('gulp'),
+    plumber    = require('gulp-plumber'),
     less       = require('gulp-less'),
     livereload = require('gulp-livereload'),
     prefix     = require('gulp-autoprefixer'),
     notify     = require('gulp-notify');
 
-var handleErrors = function(e) {
-    var args = Array.prototype.slice.call(arguments);
-
-    // Send error to notification center with gulp-notify
-    notify.onError({
-        title: "Compile Error",
-        message: "<%= error.message %>"
-    }).apply(this, args);
-
-    // Keep gulp from hanging on this task
-    this.emit('end');
-};
-
 gulp.task('styles', function() {
-    var styles = combine(
-        gulp.src('less/main.less'),
-        less({"compress": true}),
-        prefix(),
-        gulp.dest('css/')
-    );
-
-    styles.on('error', handleErrors);
+    var styles = gulp.src('less/main.less')
+        .pipe(plumber())
+        .pipe(less({"compress": true}))
+        .pipe(prefix())
+        .pipe(gulp.dest('css/'));
 
     return styles;
 });
