@@ -13,7 +13,7 @@
   "homepage": "http://atsh.me",
   "devDependencies": {
     "connect": "^2.17.1",
-    "gulp": "^3.6.2",
+    "gulp": "^3.8.0",
     "gulp-autoprefixer": "0.0.7",
     "gulp-less": "^1.2.3",
     "gulp-livereload": "^1.5.0",
