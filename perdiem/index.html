@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="en-NZ">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            body {
+                font-family: Helvetica, sans-serif;
+                width: 80%;
+                margin: 0 auto;
+            }
+            
+            .controls > label {
+                display: inline-block;
+                width: 240px;    
+            }
+
+            #output {
+                width: 580px;
+            }
+        </style>
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+    </head>
+    <body>
+        <h1>Do Per Diems Pls</h1>
+
+        <div class="controls">
+            <label for="startdate">Start Date</label>
+            <input id="startdate" type="date">
+        </div>
+
+        <div class="controls">
+            <label for="enddate">End Date</label>
+            <input id="enddate" type="date">
+        </div>
+
+        <div class="controls">
+            <label for="per-diem">Per Diem Rate</label>
+            <input id="per-diem" type="number" value="70">
+        </div>
+
+        <div class="controls">
+            <label for="rate">Exchange Rate (AUD to NZD)</label>
+            <input id="rate" type="number">
+        </div>
+        
+        <div class="controls">
+            <label for="osm">Offshore Service Margin Rate</label>
+            <input id="osm" type="number" value="0.021">
+        </div>
+
+        <div>
+            <button id="go">Calculate</button>
+        </div>
+
+        <div class="output-container">
+            <textarea id="output"></textarea>
+        </div>
+        
+        <script>
+            function daysBetween(date1, date2) {
+                // The number of milliseconds in one day
+                var ONE_DAY = 1000 * 60 * 60 * 24
+
+                // Convert both dates to milliseconds
+                var date1_ms = date1.getTime()
+                var date2_ms = date2.getTime()
+
+                // Calculate the difference in milliseconds
+                var difference_ms = Math.abs(date1_ms - date2_ms) + ONE_DAY
+
+                // Convert back to days and return
+                return Math.round(difference_ms/ONE_DAY)
+            }
+
+            function getRate(from, to) {
+                var script = document.createElement('script');
+                script.setAttribute('src', "//query.yahooapis.com/v1/public/yql?q=select%20rate%2Cname%20from%20csv%20where%20url%3D'http%3A%2F%2Fdownload.finance.yahoo.com%2Fd%2Fquotes%3Fs%3D"+from+to+"%253DX%26f%3Dl1n'%20and%20columns%3D'rate%2Cname'&format=json&callback=parseExchangeRate");
+                document.body.appendChild(script);
+            }
+             
+            function parseExchangeRate(data) {
+                var name = data.query.results.row.name;
+                var rate = parseFloat(data.query.results.row.rate, 10);
+
+                exchangeRateInput.value = rate;
+            }
+
+            var startDateInput    = document.getElementById('startdate'),
+                endDateInput      = document.getElementById('enddate'),
+                exchangeRateInput = document.getElementById('rate'),
+                osmInput          = document.getElementById('osm'),
+                perDiemInput      = document.getElementById('per-diem'),
+                calculateBtn      = document.getElementById('go'),
+                outputContainer   = document.getElementById('output');
+
+            getRate('AUD', 'NZD');
+
+            startDateInput.valueAsDate = new Date()
+            endDateInput.valueAsDate = new Date();
+
+            calculateBtn.addEventListener('click', function() {
+                var startDate    = startDateInput.valueAsDate,
+                    endDate      = endDateInput.valueAsDate,
+                    exchangeRate = exchangeRateInput.value,
+                    osmRate      = osmInput.value,
+                    perDiemRate  = perDiemInput.value,
+                    days,
+                    totalAud,
+                    totalNzd,
+                    offshoreServiceMargins;
+
+                days = daysBetween(startDate, endDate)
+                totalAud = days * perDiemRate;
+                totalNzd = totalAud * exchangeRate;
+                offshoreServiceMargins = totalNzd * osmRate;
+                totalPerdiem = totalNzd + offshoreServiceMargins;
+
+                console.log(days, totalAud, totalNzd, offshoreServiceMargins, totalPerdiem)
+
+                var output = 'Sydney Trip for '+days+' days from '+startDateInput.value+' to '+endDateInput.value+' @ AU$'+perDiemInput.value+' per day = NZ$'+totalPerdiem.toFixed(2)+' (Conversion at '+exchangeRate+' plus $'+offshoreServiceMargins+' fee)'
+
+                outputContainer.value = output;
+            });
+
+        </script>
+    </body>
+</html>

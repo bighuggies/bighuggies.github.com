@@ -35,7 +35,7 @@ gulp.task('watch', function() {
     };
 
     gulp.watch('less/**', ['styles']);
-    gulp.watch(['css/**', '_layouts/**', '_includes/**', 'blog/**'], ['jekyll']);
+    gulp.watch(['css/**', '_layouts/**', '_includes/**', 'blog/**', 'perdiem/**'], ['jekyll']);
     gulp.watch(['_site/**']).on('change', reload);
 });
 
