@@ -1,4 +1,6 @@
-<header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="{{ include.post.url }}">{{ include.post.title }}</a></h1>
-    <time class="post-timestamp" datetime="{{ include.post.date }}">{{ include.post.date | date_to_long_string }}</time>
+<header class="PostTitle">
+    <h2 class="PostTitle-title">
+      <a href="{{ include.post.url }}">{{ include.post.title }}</a>
+    </h2>
+    <time datetime="{{ include.post.date }}" class="PostTitle-time">{{ include.post.date | date_to_long_string }}</time>
 </header>

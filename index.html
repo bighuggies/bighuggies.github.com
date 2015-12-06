@@ -3,11 +3,11 @@ layout: default
 ---
 
 {% for post in site.posts %}
-	<article class="post">
+	<article>
         {% include post_header.html post=post %}
         {{ post.excerpt }}
-        <footer class="post-footer">
-            <a class="post-link read-more" href="{{post.url}}">read more ...</a>
+        <footer>
+            <a href="{{post.url}}">read more ...</a>
         </footer>
 	</article>
 {% endfor %}

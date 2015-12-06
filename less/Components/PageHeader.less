@@ -1,0 +1,32 @@
+.PageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 20%;
+  background: rgba(0,0,0,0.05);
+  border-top: 5px solid @color-charcoal;
+
+  @media(max-width: 1024px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  @media(max-width: 500px) {
+    flex-direction: column;
+  }
+
+  &-title {
+    margin: 0;
+  }
+
+  &-link {
+    color: @color-charcoal;
+    padding: 0.67rem;
+    font-size: 1.5rem;
+
+    &:hover {
+      text-decoration: none;
+      text-shadow: 0 0 1px lighten(@color-charcoal, 25%);
+    }
+  }
+}

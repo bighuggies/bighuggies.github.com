@@ -8,7 +8,7 @@ blog post for a while now, so here's one on [mcnagg](http://mcnagg.tv), why I
 made it, what it does, and how it works (also a rambly middle section where I go
 on about merging Python iterators).
 
-## What is mcnagg?
+### What is mcnagg?
 
 mcnagg is the **M**ind**C**rack **N**etwork **agg**regator. If you aren't
 familiar, the [Mindcrack Network](http://mindcracklp.com/) is a group of content
@@ -29,7 +29,7 @@ users.
 
 By the way, I am aware that the name mcnagg is terrible.
 
-## How does it work?
+### How does it work?
 
 mcnagg is a fairly simple application built in [Python](https://www.python.org/)
 using [Tornado](http://www.tornadoweb.org) deployed on [Heroku](www.heroku.com).
@@ -39,7 +39,7 @@ powers the website. The front end uses [Bootstrap](http://getbootstrap.com/) and
 a mild amount of [jQuery](http://jquery.com/), nothing really to phone home
 about.
 
-## The Tornado part
+### The Tornado part
 
 To be honest I haven't really touched the Tornado part since I originally
 started the project two years ago. All of my more recent web projects in Python
@@ -48,7 +48,7 @@ consumed by a JavaScript front end. mcnagg is more traditional; the back end
 serves up HTML which is generated from templates by the server. As far as I can
 remember, Tornado was pretty nice to work with :v.
 
-## The data part
+### The data part
 
 The Tornado part of the application depends on a seperate module which abstracts
 the interaction with the YouTube API. This part and the web interface are what I
@@ -100,7 +100,7 @@ account which subscribes to each Mindcracker and pull the subscriptions feed
 from that account, but who takes the easy way out when they're messing about
 trying to create something cool and learn stuff?
 
-## The front end part
+### The front end part
 
 The front end of the website is fairly simple. It presents a list of filters and
 a list of videos. Changing the filters will change the list of videos. There are
@@ -122,7 +122,7 @@ because it makes it super easy to build responsive sites. mcnagg was the first
 project I really used Bootstrap in and the experience is what really sold me on
 it.
 
-## The future of mcnagg
+### The future of mcnagg
 
 mcnagg is fun to work on, and I reckon I'll be tinkering with it for ages, but
 as YouTube subscriptions start to suck less and I have less time to watch as
@@ -132,11 +132,10 @@ Additionally, the Mindcrack website now has similar functionality to mcnagg
 Mindcrack website. The utility of mcnagg is starting to fade as other sites step
 up their game.
 
-## Final thoughts
+### Final thoughts
 
 This turned into a rambly post on how to merge Python iterators (which is
 actually a post I've been meaning to write for months) but hopefully Mike
 appreciates the additional SEO he gets from me linking him. Also, if you'd like
 to see the source for mcnagg (and the aforementioned iterator merging) you can
 of course [view it here](https://github.com/bighuggies/mcnagg).
-

@@ -11,7 +11,7 @@ an awesome time interning for Mozilla over the (New Zealand) summer. Using his
 wit and charm he managed to swing us a Mozilla sponsored project revolving
 around Socorro, Mozilla's distributed crash collection system.
 
-## What is Socorro?
+### What is Socorro?
 
 Socorro is one of those back end things which are critically important, but not
 particularly glamorous. Before Tony worked on it for his internship, I had never
@@ -21,13 +21,13 @@ Socorro's architecture is distributed and to get an idea of how it might scale,
 you can read [Tony's overview of it's
 architecture](http://rfw.name/blog/2013/04/07/making_socorro_easy.html).
 
-## What are we doing to Socorro?
+### What are we doing to Socorro?
 
 It's currently week 5 of the project, and we've spent most of that time deciding
 and planning our direction for this project. We intend on improving what are
 some of the wartiest parts of Socorro.
 
-### Configurator
+#### Configurator
 
 The configurator will be a web tool which will help generate and validate
 Socorro configuration files. Socorro is configured with a [collection of INI
@@ -37,7 +37,7 @@ generating correct config files from a form based web interface. We hope to be
 able to export a topology graph of the nodes and storages in the Socorro config,
 which should make it easier to spot any derps in the set up.
 
-### Operations Dashboard
+#### Operations Dashboard
 
 Currently Socorro has a [status page](https://crash-stats.mozilla.com/status)
 which gives information mainly about jobs in the system. We hope to improve on
@@ -45,7 +45,7 @@ this by creating a dashboard which has information about the system components
 themselves (the collectors, processors, etc.), including stuff like uptime and
 load, with the intent of making it easier to debug problems in the system.
 
-## Going forward
+### Going forward
 
 Keep an eye on this blog and on [Tony's](http://rfw.name) as we go forward with
 this project. The final deliverable is due in September, so until then expect

@@ -1,66 +1,65 @@
 <!DOCTYPE html>
-<html class="no-js">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>atsh.me | Andrew Hughson</title>
-		<meta name="description" content="{{ site.description }}">
-		<meta name="viewport" content="width=device-width">
+<html>
 
-		<link rel="alternate" type="application/rss+xml" title="{{ site.name }} (RSS 2.0)" href="/blog/feed.xml" />
-		
-		<link rel="shortcut icon" href="/favicon.ico?v=3" />
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>atsh.me | Andrew Hughson</title>
+	<meta name="description" content="{{ site.description }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="/css/normalize.min.css">
-		<link rel="stylesheet" href="/css/syntax.css">
-		<link rel="stylesheet" href="/css/main.css">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen:300,700">
-		<link href='http://fonts.googleapis.com/css?family=Merriweather:300,400' rel='stylesheet' type='text/css'>
-	</head>
-	<body>
-		<aside class="sidebar">
-			<header class="page-header">
-				<h1 class="sidebar-element">
-    				<a href="/" class="page-title">Andrew Hughson</a>
-      			</h1>
+	<link rel="alternate" type="application/rss+xml" title="{{ site.name }} (RSS 2.0)" href="/blog/feed.xml" />
 
-  				<img class="sidebar-element avatar" src="/img/avatar.jpg" alt="Andrew Hughson avatar">
+	<link rel="shortcut icon" href="/favicon.ico?v=3" />
 
-				<nav class="sidebar-element header-nav">
-					<ul class="header-links inline-list">
-						<li>
-							<a href="/blog"><i class="icon-book"></i></a>
-						</li>
-						<li>
-							<a href="https://twitter.com/bighuggies/"><i class="icon-twitter"></i></a>
-						</li>
-						<li>
-							<a href="https://github.com/bighuggies/"><i class="icon-github"></i></a>
-						</li>
-						<li>
-							<a href="mailto:andrew@hughson.me"><i class="icon-envelope"></i></a>
-						</li>
-					</ul>
-				</nav>
-			</header>
-		</aside>
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/syntax.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen:300|Merriweather:400">
+</head>
 
-		<main class="content">
-			<div class="content-inner">
-				{{ content }}
-			</div>
-		</main>
+<body>
+	<header class="PageHeader">
+		<h1 class="PageHeader-title">
+			<a href="/">atsh</a>
+		</h1>
 
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		<nav>
+			<ul class="u-inlineList">
+				<li>
+					<a href="/blog" class="PageHeader-link"><i class="icon-book"></i></a>
+				</li>
+				<li>
+					<a href="https://twitter.com/bighuggies/" class="PageHeader-link"><i class="icon-twitter"></i></a>
+				</li>
+				<li>
+					<a href="https://github.com/bighuggies/" class="PageHeader-link"><i class="icon-github"></i></a>
+				</li>
+			</ul>
+		</nav>
+	</header>
 
-		  ga('create', 'UA-39613144-1', 'atsh.me');
-		  ga('send', 'pageview');
+	<main class="content">
+		{{ content }}
+	</main>
 
-		</script>
-	</body>
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-39613144-1', 'atsh.me');
+		ga('send', 'pageview');
+	</script>
+</body>
+
 </html>

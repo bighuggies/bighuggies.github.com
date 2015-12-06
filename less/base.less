@@ -1,0 +1,91 @@
+@import '_variables';
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: Oxygen, Helvetica, sans-serif;
+  font-weight: 300;
+  color: @color-text;
+  background-color: @color-background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Merriweather, Georgia, serif;
+  font-weight: 400;
+  color: @color-charcoal;
+  letter-spacing: -0.033em;
+
+  > a {
+    color: @color-charcoal;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+a {
+  color: @color-links;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+pre {
+  padding: 0.5rem;
+}
+
+code {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.75rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+ul,
+ol,
+dl,
+blockquote,
+p,
+address,
+table,
+fieldset,
+figure,
+footer,
+pre {
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
