@@ -4,4 +4,3 @@ url: http://atsh.me
 markdown: kramdown
 exclude: [sass, CNAME, config.rb, .gitignore, node_modules]
 permalink: /blog/:title
-highlighter: rouge
