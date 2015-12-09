@@ -2,12 +2,19 @@
 layout: default
 ---
 
-{% for post in site.posts %}
-	<article>
-        {% include post_header.html post=post %}
-        {{ post.excerpt }}
-        <footer>
-            <a href="{{post.url}}">read more ...</a>
-        </footer>
-	</article>
-{% endfor %}
+<h1 class="PageTitle">
+	Recent Articles
+</h1>
+
+<ul class="PostExcerpts">
+	{% for post in site.posts %}
+	<li class="PostExcerpts-postExcerpt">
+		<a href="{{ post.url }}" class="PostExcerpts-postLink">
+			<time datetime="{{ post.date }}">{{ post.date | date_to_long_string }}</time>
+			<h2 class="PostExcerpts-postTitle">{{ post.title }}</h2>
+
+			<p>{{ post.excerpt | strip_html | truncate: 175, '...' }}</p>
+		</a>
+	</li>
+	{% endfor %}
+</ul>

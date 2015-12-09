@@ -1,0 +1,23 @@
+.Post {
+  &-title {
+    margin-bottom: 0;
+  }
+
+  &-titleLink {
+    color: @color-headings;
+  }
+
+  &-time {
+    color: @color-charcoal;
+  }
+
+  img {
+    width: 100%;
+    border: 0.125rem solid @color-charcoal;
+    transition: border-color 0.1s;
+
+    &:hover {
+      border-color: lighten(@color-charcoal, 60%);
+    }
+  }
+}

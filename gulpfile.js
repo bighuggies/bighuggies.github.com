@@ -39,7 +39,7 @@ gulp.task('watch', ['build'], function() {
     };
 
     gulp.watch('less/**', ['styles']);
-    gulp.watch(['css/**', '_layouts/**', '_includes/**', 'blog/**', 'perdiem/**'], ['jekyll']);
+    gulp.watch(['index.html', 'css/**', '_layouts/**', '_includes/**', 'blog/**', 'perdiem/**'], ['jekyll']);
     gulp.watch(['_site/**']).on('change', reload);
 });
 

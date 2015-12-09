@@ -13,9 +13,7 @@ html {
 
 body {
   font-family: Oxygen, Helvetica, sans-serif;
-  font-weight: 300;
   color: @color-text;
-  background-color: @color-background;
 }
 
 h1,
@@ -26,12 +24,8 @@ h5,
 h6 {
   font-family: Merriweather, Georgia, serif;
   font-weight: 400;
-  color: @color-charcoal;
+  color: @color-headings;
   letter-spacing: -0.033em;
-
-  > a {
-    color: @color-charcoal;
-  }
 }
 
 h1 {
@@ -39,11 +33,11 @@ h1 {
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 h4 {
@@ -61,11 +55,15 @@ a {
 
 pre {
   padding: 0.5rem;
+  background: rgba(0,0,0,.05);
 }
 
 code {
   font-family: Consolas, Monaco, monospace;
-  font-size: 0.75rem;
+
+  @media(max-width: @screen-sm-max) {
+    font-size: 0.75rem;
+  }
 }
 
 h1,
@@ -86,6 +84,5 @@ fieldset,
 figure,
 footer,
 pre {
-  margin: 0;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
 }

@@ -2,7 +2,13 @@
 layout: default
 ---
 
-<article>
-    {% include post_header.html post=page %}
-    <div>{{ content }}</div>
+<article class="Post">
+  <header>
+    <h1 class="Post-title">
+      <a class="Post-titleLink" href="#">{{ page.title }}</a>
+    </h1>
+    <time datetime="{{ page.date }}" class="Post-time">{{ page.date | date_to_long_string }}</time>
+  </header>
+
+  {{ content }}
 </article>
