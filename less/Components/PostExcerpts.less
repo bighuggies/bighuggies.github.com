@@ -2,15 +2,21 @@
   list-style: none;
   padding: 0;
 
+  &-postContainer {
+    background: @color-charcoal;
+  }
+
   &-postExcerpt {
     @media(min-width: @screen-md-min) {
+      background: white;
       margin-bottom: 2rem;
-      transition: border-width 0.1s;
+      transition: transform 0.1s;
       padding-left: 1rem;
       border-left: 1px solid #eee;
 
       &:hover {
-        border-left: 5px solid @color-charcoal;
+        border-color: @color-charcoal;
+        transform: translateX(4px);
       }
     }
 

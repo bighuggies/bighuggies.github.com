@@ -8,13 +8,15 @@ layout: default
 
 <ul class="PostExcerpts">
 	{% for post in site.posts %}
-	<li class="PostExcerpts-postExcerpt">
-		<a href="{{ post.url }}" class="PostExcerpts-postLink">
-			<time datetime="{{ post.date }}">{{ post.date | date_to_long_string }}</time>
-			<h2 class="PostExcerpts-postTitle">{{ post.title }}</h2>
+	<div class="PostExcerpts-postContainer">
+		<li class="PostExcerpts-postExcerpt">
+			<a href="{{ post.url }}" class="PostExcerpts-postLink">
+				<time datetime="{{ post.date }}">{{ post.date | date_to_long_string }}</time>
+				<h2 class="PostExcerpts-postTitle">{{ post.title }}</h2>
 
-			<p>{{ post.excerpt | strip_html | truncate: 175, '...' }}</p>
-		</a>
-	</li>
+				<p>{{ post.excerpt | strip_html | truncate: 175, '...' }}</p>
+			</a>
+		</li>
+	</div>
 	{% endfor %}
 </ul>
