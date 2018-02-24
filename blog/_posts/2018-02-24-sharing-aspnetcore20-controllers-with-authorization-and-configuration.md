@@ -254,4 +254,6 @@ This is beneficial to us since consumers of our library can now define how they 
 
 ## Conclusion
 
-We have seen how to create a library with configurable controllers that can have authorization restrictions using the authorization and configuration features of ASP.NET Core 2.0. I hope this post has been a useful guide.
+Hopefully this example has demonstrated how ASP.NET Core 2.0 lets us build nicely abstracted controller libraries which use the configuration and authorization features of the framework.
+
+If you know of something I missed or want to ask questions/provide feedback, please open an issue on the [repository which accompanies this example](https://github.com/bighuggies/ControllerLibrarySample).
