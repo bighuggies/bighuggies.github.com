@@ -5,7 +5,7 @@ layout: post
 
 With ASP.NET Core 2.0 it's easy to publish APIs as libraries and include them in your other projects. This is helpful because it allows you to build end-to-end functionality (e.g. content management) that you can share among different website projects.
 
-This post will walk through a short example of how to build an ASP.NET Core 2.0 controller library which uses ASP.NET Core 2.0 configuration and authorization features. [The code for this post is available on GitHub here](https://github.com/bighuggies).
+This post will walk through a short example of how to build an ASP.NET Core 2.0 controller library which uses ASP.NET Core 2.0 configuration and authorization features. [The code for this post is available on GitHub here](https://github.com/bighuggies/ControllerLibrarySample).
 
 
 ## Contents
