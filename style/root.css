@@ -46,7 +46,7 @@ pre {
 pre {
   padding: 0.5rem;
   background: rgba(0, 0, 0, 0.05);
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 code {
