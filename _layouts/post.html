@@ -2,13 +2,11 @@
 layout: default
 ---
 
-<article class="Post">
-  <header>
-    <h1 class="Post-title">
-      <a class="Post-titleLink" href="#">{{ page.title }}</a>
-    </h1>
-    <time datetime="{{ page.date }}" class="Post-time">{{ page.date | date_to_long_string }}</time>
-  </header>
+<article class="Post" aria-labelledby="{{ page.slug }}">
+  <h1 class="Post-title" id="{{ page.slug }}">
+    <a class="Post-titleLink" href="#">{{ page.title }}</a>
+  </h1>
+  <time datetime="{{ page.date }}" class="Post-time">{{ page.date | date_to_long_string }}</time>
 
   {{ content }}
 </article>

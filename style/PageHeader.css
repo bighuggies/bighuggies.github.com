@@ -1,0 +1,53 @@
+.PageHeader {
+  background-color: var(--color-gray95);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 5px solid var(--color-charcoal);
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1160px) {
+  .PageHeader {
+    padding: 0 20%;
+  }
+}
+
+.PageHeader-title {
+  margin-bottom: 0;
+}
+
+.PageHeader-titleLink {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.PageHeader-nav {
+  align-self: stretch;
+}
+
+.PageHeader-navItems {
+  height: 100%;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.PageHeader-navItem {
+  height: 100%;
+}
+
+.PageHeader-navLink {
+  color: currentColor;
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.PageHeader-navLink:hover {
+  background-color: color-mod(var(--color-charcoal) alpha(10%));
+}

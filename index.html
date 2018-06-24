@@ -3,20 +3,22 @@ layout: default
 ---
 
 <h1 class="PageTitle">
-	Recent Articles
+  Recent Articles
 </h1>
 
 <ul class="PostExcerpts">
-	{% for post in site.posts %}
-	<div class="PostExcerpts-postContainer">
-		<li class="PostExcerpts-postExcerpt">
-			<a href="{{ post.url }}" class="PostExcerpts-postLink">
-				<time datetime="{{ post.date }}">{{ post.date | date_to_long_string }}</time>
-				<h2 class="PostExcerpts-postTitle">{{ post.title }}</h2>
+  {% for post in site.posts %}
+  <li class="PostExcerpts-item">
+    <a href="{{ post.url }}" class="PostExcerpts-postLink">
+      <h2 class="PostExcerpts-postTitle">
+        {{ post.title }}
+      </h2>
+      <time class="PostExcerpts-postTime" datetime="{{ post.date }}">
+        {{ post.date | date_to_long_string }}
+      </time>
 
-				<p>{{ post.excerpt | strip_html | truncate: 175, '...' }}</p>
-			</a>
-		</li>
-	</div>
-	{% endfor %}
+      <p>{{ post.excerpt | strip_html | truncate: 175, '...' }}</p>
+    </a>
+  </li>
+  {% endfor %}
 </ul>

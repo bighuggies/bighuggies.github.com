@@ -1,0 +1,44 @@
+.PostExcerpts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 760px) {
+  .PostExcerpts-item {
+    border-left: 1px solid var(--color-gray90);
+    background-color: var(--color-charcoal);
+  }
+}
+
+.PostExcerpts-item + .PostExcerpts-item {
+  margin-top: 3rem;
+}
+
+.PostExcerpts-postLink {
+  color: currentColor;
+  text-decoration: none;
+}
+
+@media (min-width: 760px) {
+  .PostExcerpts-postLink {
+    display: block;
+    background-color: white;
+    transition: transform 100ms ease;
+    padding-left: 1rem;
+  }
+
+  .PostExcerpts-item:hover > .PostExcerpts-postLink {
+    transform: translateX(5px);
+  }
+}
+
+.PostExcerpts-postTitle {
+  margin-bottom: 0.25rem;
+}
+
+.PostExcerpts-postTime {
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 1rem;
+}

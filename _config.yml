@@ -1,5 +1,5 @@
 name: atsh.me
 description: My blag which I post on
 url: http://atsh.me
-exclude: [sass, CNAME, config.rb, .gitignore, node_modules]
+exclude: [CNAME, config.rb, .gitignore, Gemfile, package.json, package-lock.json, node_modules, postcss.config.js, style]
 permalink: /blog/:title

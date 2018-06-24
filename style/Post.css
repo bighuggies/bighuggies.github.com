@@ -1,0 +1,21 @@
+.Post-title {
+  margin-bottom: 0.25rem;
+}
+
+.Post-titleLink {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.Post-time {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 3rem;
+}
+
+.Post img {
+  width: auto;
+  max-width: 100%;
+  border: 0.125rem solid var(--color-charcoal);
+  transition: border-color 0.1s;
+}

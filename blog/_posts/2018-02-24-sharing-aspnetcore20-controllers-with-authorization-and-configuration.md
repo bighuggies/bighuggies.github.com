@@ -23,7 +23,7 @@ To demonstrate how to do this we will create a solution with two projects:
 1. An ASP.NET Core 2.0 web project (`ControllerLibrarySample.Web`)
 2. A .NET Standard 2.0 class library project (`ControllerLibrarySample.Library`)
 
-![Screenshot of solution structure with two projects](/assets/aspnetcoresharingcontrollers/solution_structure.PNG)
+![Screenshot of solution structure with two projects](/assets/images/aspnetcoresharingcontrollers/solution_structure.PNG)
 
 For simplicity, the controller class library and web project are in the same solution. In reality, you might publish the library as a nuget package in order to share it among your projects.
 
@@ -55,19 +55,19 @@ namespace ControllerLibrarySample.Library.Controllers
 
 Notice we are using MVC. For this to build, the library project will need to reference the `Microsoft.AspNetCore.Mvc` package via nuget.
 
-![Nuget reference from the class library project to Microsoft.AspNetCore.Mvc](/assets/aspnetcoresharingcontrollers/add_mvc_nuget_reference.PNG)
+![Nuget reference from the class library project to Microsoft.AspNetCore.Mvc](/assets/images/aspnetcoresharingcontrollers/add_mvc_nuget_reference.PNG)
 
 ### Using the controller
 
 For the web project to see and use controllers which are in our class library, we only need to reference the class library project:
 
-![Project reference from the web project to the class library project](/assets/aspnetcoresharingcontrollers/add_project_reference.PNG)
+![Project reference from the web project to the class library project](/assets/images/aspnetcoresharingcontrollers/add_project_reference.PNG)
 
 In previous versions of ASP.NET you had to write some plumbing code for MVC to see controllers in referenced assemblies. In ASP.NET Core 2.0, it's automatic. For more information on how this works, you can refer to the [documentation on Application Parts](https://docs.microsoft.com/en-us/aspnet/core/mvc/advanced/app-parts).
 
 Now, if we run the Web project and visit `/api/othervalues` we can see that our library controller is working and available:
 
-![Other values controller result of get request](/assets/aspnetcoresharingcontrollers/othervalues_controller_working.PNG)
+![Other values controller result of get request](/assets/images/aspnetcoresharingcontrollers/othervalues_controller_working.PNG)
 
 ## Providing services to library controllers
 
@@ -238,7 +238,7 @@ public IEnumerable<string> GetSecretValues()
 
 Now when we try to run our web project, we get the following exception:
 
-![The AuthorizationPolicy named: 'AdminsOnly' was not found](/assets/aspnetcoresharingcontrollers/policy_exception.PNG)
+![The AuthorizationPolicy named: 'AdminsOnly' was not found](/assets/images/aspnetcoresharingcontrollers/policy_exception.PNG)
 
 Inside our `Startup.cs` we can now configure our policy based on some requirement. We could require a specific claim or role, or even some other custom business logic. This could look something like the following (incomplete example, full auth configuration is out of scope of this post):
 
