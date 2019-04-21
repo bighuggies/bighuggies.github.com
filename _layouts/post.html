@@ -6,7 +6,9 @@ layout: default
   <h1 class="Post-title" id="{{ page.slug }}">
     <a class="Post-titleLink" href="#">{{ page.title }}</a>
   </h1>
-  <time datetime="{{ page.date }}" class="Post-time">{{ page.date | date_to_long_string }}</time>
+  <time datetime="{{ page.date }}" class="Post-time"
+    >{{ page.date | date_to_long_string }}</time
+  >
 
   {{ content }}
 </article>

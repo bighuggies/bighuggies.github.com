@@ -1,9 +1,9 @@
 module.exports = {
   plugins: [
-    require('postcss-import')(),
-    require('postcss-preset-env')(),
-    require('cssnano')({
-      preset: 'advanced'
+    require("postcss-import")(),
+    require("postcss-preset-env")(),
+    require("cssnano")({
+      preset: "advanced"
     })
   ]
 };

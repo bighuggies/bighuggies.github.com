@@ -1,13 +1,13 @@
 /* lib */
-@import url('../assets/styles/normalize.css');
-@import url('../assets/styles/syntax.css');
+@import url("../assets/styles/normalize.css");
+@import url("../assets/styles/syntax.css");
 
 /* theme */
-@import url('./root.css');
-@import url('./headings.css');
+@import url("./root.css");
+@import url("./headings.css");
 
 /* components */
-@import url('./PageHeader.css');
-@import url('./PageTitle.css');
-@import url('./PostExcerpts.css');
-@import url('./Post.css');
+@import url("./PageHeader.css");
+@import url("./PageTitle.css");
+@import url("./PostExcerpts.css");
+@import url("./Post.css");

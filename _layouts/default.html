@@ -1,71 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-NZ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ site.description }}" />
+    <title>atsh.me | Andrew Hughson</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site.description }}">
-  <title>atsh.me | Andrew Hughson</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/favicon/apple-touch-icon.png?v=YAol0QJERg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon/favicon-32x32.png?v=YAol0QJERg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/favicon/favicon-16x16.png?v=YAol0QJERg"
+    />
+    <link rel="manifest" href="/site.webmanifest?v=YAol0QJERg" />
+    <link
+      rel="mask-icon"
+      href="/assets/images/favicon/safari-pinned-tab.svg?v=YAol0QJERg"
+      color="#374550"
+    />
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon/favicon.ico?v=YAol0QJERg"
+    />
+    <meta name="apple-mobile-web-app-title" content="atsh.me" />
+    <meta name="application-name" content="atsh.me" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-config"
+      content="/assets/images/favicon/browserconfig.xml?v=YAol0QJERg"
+    />
+    <meta name="theme-color" content="#374550" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png?v=YAol0QJERg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png?v=YAol0QJERg">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png?v=YAol0QJERg">
-  <link rel="manifest" href="/site.webmanifest?v=YAol0QJERg">
-  <link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg?v=YAol0QJERg" color="#374550">
-  <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico?v=YAol0QJERg">
-  <meta name="apple-mobile-web-app-title" content="atsh.me">
-  <meta name="application-name" content="atsh.me">
-  <meta name="msapplication-TileColor" content="#2d89ef">
-  <meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml?v=YAol0QJERg">
-  <meta name="theme-color" content="#374550">
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="{{ site.name }} (RSS 2.0)"
+      href="/blog/feed.xml"
+    />
+    <link rel="stylesheet" href="/site.css" />
+  </head>
 
-  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} (RSS 2.0)" href="/blog/feed.xml" />
-  <link rel="stylesheet" href="/site.css">
-</head>
+  <body>
+    <header class="header PageHeader">
+      <h1 class="PageHeader-title">
+        <a class="PageHeader-titleLink" href="/">atsh</a>
+      </h1>
 
-<body>
-  <header class="header PageHeader">
-    <h1 class="PageHeader-title">
-      <a class="PageHeader-titleLink" href="/">atsh</a>
-    </h1>
+      <nav class="PageHeader-nav" aria-label="Main">
+        <ul class="PageHeader-navItems">
+          <li class="PageHeader-navItem">
+            <a href="/blog" class="PageHeader-navLink">
+              Blog
+            </a>
+          </li>
+          <li class="PageHeader-navItem">
+            <a href="https://github.com/bighuggies/" class="PageHeader-navLink">
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-    <nav class="PageHeader-nav" aria-label="Main">
-      <ul class="PageHeader-navItems">
-        <li class="PageHeader-navItem">
-          <a href="/blog" class="PageHeader-navLink">
-            Blog
-          </a>
-        </li>
-        <li class="PageHeader-navItem">
-          <a href="https://github.com/bighuggies/" class="PageHeader-navLink">
-            GitHub
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+    <main class="content">
+      {{ content }}
+    </main>
 
-  <main class="content">
-    {{ content }}
-  </main>
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function() {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "//www.google-analytics.com/analytics.js",
+        "ga"
+      );
 
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-39613144-1', 'atsh.me');
-    ga('send', 'pageview');
-  </script>
-</body>
-
+      ga("create", "UA-39613144-1", "atsh.me");
+      ga("send", "pageview");
+    </script>
+  </body>
 </html>
