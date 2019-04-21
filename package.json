@@ -2,6 +2,7 @@
   "name": "atsh.me",
   "version": "1.0.0",
   "description": "My blag which I post on",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bighuggies/bighuggies.github.com.git"
@@ -18,13 +19,14 @@
     "prettier": "prettier --write **/*.{css,js}"
   },
   "devDependencies": {
-    "concurrently": "^3.6.0",
-    "cssnano": "^3.10.0",
-    "postcss-cli": "^5.0.1",
-    "postcss-import": "^11.1.0",
-    "postcss-preset-env": "^5.1.0",
-    "prettier": "^1.13.5",
-    "stylelint": "^9.3.0",
-    "stylelint-config-standard": "^18.2.0"
+    "concurrently": "^4.1.0",
+    "cssnano": "^4.1.10",
+    "cssnano-preset-advanced": "^4.0.7",
+    "postcss-cli": "^6.1.2",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.6.0",
+    "prettier": "^1.17.0",
+    "stylelint": "^10.0.1",
+    "stylelint-config-standard": "^18.3.0"
   }
 }
