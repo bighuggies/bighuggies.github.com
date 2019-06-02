@@ -9,6 +9,8 @@
   --color-gray97: hsl(0, 0%, 97%);
   --color-gray95: hsl(0, 0%, 95%);
   --color-gray90: hsl(0, 0%, 90%);
+  --max-width-content: 780px;
+  --padding-gutter: 1.5rem;
 
   color: var(--color-charcoal);
   font-size: 20px;
@@ -67,7 +69,7 @@ body {
 }
 
 .content {
-  max-width: 780px;
+  max-width: var(--max-width-content);
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 3rem var(--padding-gutter);
 }

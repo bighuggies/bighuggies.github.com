@@ -1,17 +1,17 @@
 .PageHeader {
   background-color: var(--color-gray95);
   height: 80px;
+  border-top: 5px solid var(--color-charcoal);
+}
+
+.PageHeader-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 5px solid var(--color-charcoal);
-  padding: 0 1.5rem;
-}
-
-@media (min-width: 1160px) {
-  .PageHeader {
-    padding: 0 20%;
-  }
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 var(--padding-gutter);
+  height: 100%;
 }
 
 .PageHeader-title {
@@ -39,10 +39,13 @@
   height: 100%;
 }
 
+.PageHeader-navItem + .PageHeader-navItem {
+  margin-left: 2rem;
+}
+
 .PageHeader-navLink {
   color: currentColor;
   height: 100%;
-  padding: 0 1rem;
   display: flex;
   align-items: center;
   text-decoration: none;
