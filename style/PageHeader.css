@@ -1,7 +1,8 @@
 .PageHeader {
-  background-color: var(--color-gray95);
+  background-color: var(--color-bluegray);
   height: 80px;
   border-top: 5px solid var(--color-charcoal);
+  color: white;
 }
 
 .PageHeader-wrapper {
@@ -21,6 +22,7 @@
 .PageHeader-titleLink {
   color: currentColor;
   text-decoration: none;
+  text-transform: lowercase;
 }
 
 .PageHeader-nav {

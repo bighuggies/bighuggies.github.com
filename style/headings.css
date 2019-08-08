@@ -5,12 +5,16 @@ h4,
 h5,
 h6 {
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
 h1 {
+  font-family: "Arial Black", Gadget, sans-serif;
   font-size: 2rem;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -2.5px;
 }
 
 h2 {

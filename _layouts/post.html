@@ -7,7 +7,7 @@ layout: default
     <a class="Post-titleLink" href="#">{{ page.title }}</a>
   </h1>
   <time datetime="{{ page.date }}" class="Post-time"
-    >{{ page.date | date_to_long_string }}</time
+    >{{ page.date | date: "%F" }}</time
   >
 
   {{ content }}

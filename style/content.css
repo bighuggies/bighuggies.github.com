@@ -1,0 +1,22 @@
+
+.content.in,
+.content.out {
+  opacity: 0;
+}
+
+.content.in {
+  transform: translateX(10%);
+}
+
+.content.out {
+  transform: translateX(-10%);
+}
+
+.content {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 3rem var(--padding-gutter);
+  transition: opacity 200ms ease, transform 100ms ease;
+  opacity: 1;
+  transform: translateX(0);
+}

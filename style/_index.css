@@ -5,6 +5,7 @@
 /* theme */
 @import url("./root.css");
 @import url("./headings.css");
+@import url("./content.css");
 
 /* components */
 @import url("./PageHeader.css");

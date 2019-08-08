@@ -14,7 +14,7 @@ layout: default
         {{ post.title }}
       </h2>
       <time class="PostExcerpts-postTime" datetime="{{ post.date }}">
-        {{ post.date | date_to_long_string }}
+        {{ post.date | date: "%F" }}
       </time>
 
       <p>{{ post.excerpt | strip_html | truncate: 175, '...' }}</p>
