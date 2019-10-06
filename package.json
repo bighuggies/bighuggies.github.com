@@ -13,7 +13,7 @@
   },
   "homepage": "http://atsh.me",
   "scripts": {
-    "start": "concurrently --kill-others \"jekyll serve --watch\" \"npm run postcss -- --watch\"",
+    "start": "concurrently --kill-others \"jekyll serve --drafts --watch\" \"npm run postcss -- --watch\"",
     "postcss": "postcss \"./style/_index.css\" --map -o site.css",
     "stylelint": "stylelint \"style/**/*.css\"",
     "prettier": "prettier --write \"{,!(assets)/**/}*.{html,css,js,json}\""
