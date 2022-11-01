@@ -69,3 +69,7 @@ If we had an `UPDATE_POSTCODE` action instead of a god action, we probably would
 ## Further reading
 
 If you want to know more about how you should write actions in a maintainable way, I recommend [this talk on Action Hygiene](https://www.youtube.com/watch?v=JmnsEvoy-gY) by Mike Ryan. The talk is about `ngrx` but applies to most Redux implementations.
+
+The [Redux style guide](https://redux.js.org/style-guide) has more information on why it's important to put logic in reducers instead of action dispatchers, and why reducers should own the state shape:
+- [Put as Much Logic as Possible in Reducers](https://redux.js.org/style-guide/#put-as-much-logic-as-possible-in-reducers)
+- [Reducers Should Own the State Shape](https://redux.js.org/style-guide/#reducers-should-own-the-state-shape)
