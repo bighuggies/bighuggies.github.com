@@ -8,9 +8,9 @@
   --color-bluegray: #5e6985;
   --color-charcoal: #383571;
   --color-lightpink: #f0e2f0;
-  --color-gray97: hsl(0, 0%, 97%);
-  --color-gray95: hsl(0, 0%, 95%);
-  --color-gray90: hsl(0, 0%, 90%);
+  --color-gray97: hsl(0deg 0% 97%);
+  --color-gray95: hsl(0deg 0% 95%);
+  --color-gray90: hsl(0deg 0% 90%);
   --max-width-content: 640px;
   --padding-gutter: 1.5rem;
 
@@ -24,7 +24,7 @@
   line-height: 1.5;
 }
 
-@media (max-width: 420px) {
+@media (width <= 420px) {
   :root {
     font-size: 5vw;
   }
@@ -61,7 +61,7 @@ pre {
 pre {
   font-size: 16px;
   padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgb(0 0 0 / 5%);
   overflow-x: auto;
 }
 
@@ -69,7 +69,7 @@ code {
   font-family: Consolas, Monaco, monospace;
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   code {
     font-size: 0.75rem;
   }

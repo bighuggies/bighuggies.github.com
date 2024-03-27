@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-@media (min-width: 760px) {
+@media (width >= 760px) {
   .PostExcerpts-item {
     background-color: var(--color-charcoal);
   }
@@ -15,11 +15,11 @@
 }
 
 .PostExcerpts-postLink {
-  color: currentColor;
+  color: currentcolor;
   text-decoration: none;
 }
 
-@media (min-width: 760px) {
+@media (width >= 760px) {
   .PostExcerpts-postLink {
     display: block;
     background-color: white;

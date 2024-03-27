@@ -20,7 +20,7 @@
 }
 
 .PageHeader-titleLink {
-  color: currentColor;
+  color: currentcolor;
   text-decoration: none;
   text-transform: lowercase;
 }
@@ -46,13 +46,9 @@
 }
 
 .PageHeader-navLink {
-  color: currentColor;
+  color: currentcolor;
   height: 100%;
   display: flex;
   align-items: center;
   text-decoration: none;
-}
-
-.PageHeader-navLink:hover {
-  background-color: color-mod(var(--color-charcoal) alpha(10%));
 }
