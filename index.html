@@ -2,17 +2,13 @@
 layout: default
 ---
 
-<h1 class="PageTitle">
-  Recent Articles
-</h1>
+<h1 class="PageTitle">Recent Articles</h1>
 
 <ul class="PostExcerpts">
   {% for post in site.posts %}
   <li class="PostExcerpts-item">
     <a href="{{ post.url }}" class="PostExcerpts-postLink">
-      <h2 class="PostExcerpts-postTitle">
-        {{ post.title }}
-      </h2>
+      <h2 class="PostExcerpts-postTitle">{{ post.title }}</h2>
       <time class="PostExcerpts-postTime" datetime="{{ post.date }}">
         {{ post.date | date: "%F" }}
       </time>
